@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style type="text/css">
+        #logo {
+            width: 100%;
+        }
+        #brdcrmb {
+
+        margin-top: 50px;
+    }
+
+        html,
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            font-family: 'PT Sans';
+        }
+        .breadcrumb {
+            padding: 0px;
+            background: #9b999a;
+            list-style: none;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .breadcrumb>li+li:before {
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            float: left;
+        }
+
+        .breadcrumb li.active a {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li.completed a {
+            background: #9b999a;
+            ;
+
+        }
+
+        .breadcrumb li.active a:after {
+            border-left: 30px solid #21d0e2;
+        }
+
+        .breadcrumb li.completed a:after {
+            border-left: 30px solid #9b999a;
+            
+        }
+
+        .breadcrumb li a {
+            color: white;
+            background: #9b999a;
+            text-decoration: none;
+            padding: 10px 51px 10px 45px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        .breadcrumb li a:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid #9b999a;
+            ;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            left: 100%;
+            z-index: 2;
+        }
+
+        .breadcrumb li a:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid white;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: 1px;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .breadcrumb li:first-child a {
+            padding-left: 15px;
+        }
+
+        .breadcrumb li a:hover {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li a:hover:after {
+            border-left-color: #21d0e2 !important;
+        }
+
+        input[type=text] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+
+        }
+
+        .cls-required {
+            color: red;
+        }
+
+        @media(min-width: 320px) and (max-width: 1024px) {
+            #brdcrmb {
+                display: none;
+            }
+
+            #id-hidetab {
+                display: block !important;
+            }
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+
+        }
+
+        .bg-light {
+            background-color: #9b999a !important;
+        }
+
+        .nav-link:hover {
+            background: #21d0e2;
+            color: white !important;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: white;
+            background: #21d0e2;
+        }
+
+        .no-outline:focus {
+            outline: none;
+        }
+        .cls-emp{
+            width:100px;
+            height:50px;
+        }
+        .cls-next{
+        float:right;
+        }
+        #id-next{
+        margin-left:20px;
+        background-color: #39b3d7;
+        }
+        .cls-emp{
+            width:100px;
+            height:40px;
+        }
+        .btn:hover{
+            background: #21d0e2;
+        }
+        #id-adhaar{
+            width:25%;
+        }
+        #id-pan{
+            width:28%;
+        }
+        #id-remove{
+            width: 80px;
+            height: 40px; 
+            margin-left: 32px;      
+        }
+        #id-fileremove{
+            width: 80px;
+            height: 40px;       
+        }
+        .text-danger{
+            color:red;
+        }
+        hr {
+            background-color: #39b3d7;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <img src="header (1).png" alt="logo" id="logo">
+    </div>
+    <div class="container">
+        <div class="row" id="id-hidetab" style="display:none">
+            <div class="col-12">
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-light">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="form-1.html">Personal Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="form2.html">Education</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Employee  details.html">Past Employment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Bank Details.html">Bank Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="attachment.html">Attachments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Acknowledgement.html">Acknowledgement</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="row justify-content-center" id="brdcrmb">
+
+            <ul class="breadcrumb">
+                <li><a href="form-1.html">Personal Details</a></li>
+                <li><a href="form2.html">Education</a></li>
+                <li><a href="Employee  details.html">Past Employment</a></li>
+                <li><a href="Bank Details.html">Bank Details</a></li>
+                <li class="active"><a href="attachment.html">Attachment</a></li>
+                <li ><a href="Acknowledgement.html">Acknowledgement</a></li>
+            </ul>
+
+        </div>
+        <br/><br/>
+        
+        <div class="row">
+            <div class="col-12">
+                Aadhaar Card Number  <input type="text" id="id-adhaar" class="no-outline">
+            </div>
+        </div> 
+        <br/>       
+        <div class="row">
+            <div class="col-12">
+                <label for="adhaar">Aadhaar Card Copy:</label>
+
+                <input type="file" id="aadhaar" name="files[]" accept="image/png, image/jpeg, .pdf, image/jpg" onchange="uploadImage(event)">
+                <button type="button" class="btn btn-secondary"    id="id-fileremove">Remove</button>
+            </div>
+
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-12">
+                <span class="text-danger">Only JPG, JPEG, PDF and PNG files are accepted</span>
+            </div>
+        </div>
+        <br/>
+        <hr/><br/>
+        <div class="row">
+            <div class="col-12">
+                Pan Card Number  <input type="text" id="id-pan" class="no-outline">
+            </div>
+        </div> 
+        <br/>       
+        <div class="row">
+            <div class="col-12">
+                <label for="pan">Pan Card Copy:</label>
+
+                <input type="file" id="pancard" name="files[]" accept="image/png, image/jpeg, .pdf, image/jpg" onchange="uploadingImage(event)">
+                <button type="button" class="btn btn-secondary"    id="id-remove">Remove</button>
+            </div>
+            
+
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-12">
+                <span class="text-danger">Only JPG, JPEG, PDF and PNG files are accepted</span>
+            </div>
+        </div>
+       
+        <br /><br/>
+        <div class="row">
+            <div class="col-3">
+                <button type="button" class="btn btn-secondary cls-emp" id="id-previous"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+            </div> 
+            <div class="col-9">
+                <button type="button" class="btn btn-secondary cls-next cls-emp"    id="id-next">Next ></button>
+                <button type="button" class="btn btn-secondary cls-next cls-emp"    id="id-save" data-target="#exampleModal">Save</button>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Your details have been saved successfully.<br>
+                        Do you want to exit the application?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="continue">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <br/>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var adhaarNumber=localStorage.getItem('Adhaar Number');
+        console.log(adhaarNumber);
+        $("#id-adhaar").val(adhaarNumber);
+        var panNumber=localStorage.getItem('Pan Number');
+        console.log(panNumber);
+        $("#id-pan").val(panNumber);
+    });
+    function uploadImage(event) {
+            var reader = new FileReader();
+            console.log(reader);
+            var adhaar = event.target.files[0];
+            console.log(adhaar);
+            var file=event.target.files[0].name;
+            localStorage.setItem('file-name',file);
+            console.log(file);
+            reader.addEventListener("load", function () {
+                if (this.result && localStorage) {
+                    console.log(this.result);
+                    localStorage.removeItem('adhaar');
+                    window.localStorage.setItem('adhaar', this.result);
+                } 
+                else {
+                    alert();
+                }
+            });
+            
+            reader.readAsDataURL(event.target.files[0]);
+            
+            
+        }
+        function uploadingImage(event) {
+            var reader = new FileReader();
+            console.log(reader);
+            var pan = event.target.files[0];
+            console.log(pan);
+            var file=event.target.files[0].name;
+            localStorage.setItem('panfile',file);
+            console.log(file);
+            reader.addEventListener("load", function () {
+                if (this.result && localStorage) {
+                    console.log(this.result);
+                    localStorage.removeItem('pan');
+                    window.localStorage.setItem('pan', this.result);
+                } 
+                else {
+                    alert();
+                }
+            });
+            
+            reader.readAsDataURL(event.target.files[0]);
+            
+            
+        }
+        $("#id-previous").click(function(){
+            window.location.href="./Bank Details.html";
+        });  
+        $("#id-next").click(function(){
+            window.location.href="./Acknowledgement.html";
+            var adhaarnum =$('#id-adhaar').val();
+            localStorage.setItem('Adhaar Number',adhaarnum);
+            var pannum =$('#id-pan').val();
+            localStorage.setItem('Pan Number',pannum);
+        }); 
+        $("#id-save").click(function(){
+            var adhaarnum =$('#id-adhaar').val();
+            localStorage.setItem('Adhaar Number',adhaarnum);
+            var pannum =$('#id-pan').val();
+            localStorage.setItem('Pan Number',pannum);
+            // $("#id-save").attr("data-toggle", "modal");
+            setTimeout(function() { alert("Your details have been saved successfully."); }, 200);
+        });
+        $("#continue").click(function(){
+            window.location.href="./Acknowledgement.html";
+        });    
+        
+        
+        $("#id-remove").click(function(){
+            $("#pancard").val('');
+            localStorage.removeItem('pan');
+            localStorage.removeItem('panfile');
+        });
+        $("#id-fileremove").click(function(){
+            $("#aadhaar").val('');
+            localStorage.removeItem('adhaar');
+            localStorage.removeItem('file-name');
+        });
+        $('#id-adhaar').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $('#id-pan').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+
+        
+        
+    
+    </script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+         crossorigin="anonymous"></script>
+ 
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+         crossorigin="anonymous"></script>
+    </body>
+    </html>        

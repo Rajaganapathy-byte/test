@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <title>Bank Details</title>
+    <style type="text/css">
+        html,
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            font-family: 'PT Sans';
+        }
+
+        #brdcrmb {
+
+            margin-top: 50px;
+        }
+
+        .breadcrumb {
+            padding: 0px;
+            background: #9b999a;
+            list-style: none;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .breadcrumb>li+li:before {
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            float: left;
+        }
+
+        .breadcrumb li.active a {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li.completed a {
+            background: #9b999a;
+            ;
+
+        }
+
+        .breadcrumb li.active a:after {
+            border-left: 30px solid #21d0e2;
+        }
+
+        .breadcrumb li.completed a:after {
+            border-left: 30px solid #9b999a;
+            ;
+        }
+
+        .breadcrumb li a {
+            color: white;
+            background: #9b999a;
+            ;
+            text-decoration: none;
+            padding: 10px 50px 10px 45px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        .breadcrumb li a:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid #9b999a;
+            ;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            left: 100%;
+            z-index: 2;
+        }
+
+        .breadcrumb li a:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid white;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: 1px;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .breadcrumb li:first-child a {
+            padding-left: 15px;
+        }
+
+        .breadcrumb li a:hover {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li a:hover:after {
+            border-left-color: #21d0e2 !important;
+        }
+
+        input[type=text] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+
+        }
+
+        .cls-required {
+            color: red;
+        }
+
+        #id-bank {
+
+            margin-top: 20px;
+
+        }
+
+        #id-bankname {
+
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #span-bankname {
+            color: #dc3545;
+            font-size: 80%;
+        }
+
+        #span-accountno {
+            color: #dc3545;
+            font-size: 80%;
+        }
+
+        #span-branch {
+            color: #dc3545;
+            font-size: 80%;
+        }
+
+        #span-ifsc {
+            color: #dc3545;
+            font-size: 80%;
+        }
+
+        .acccountno {
+
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .cls-branch {
+
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .cls-ifsc {
+
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .cls-next {
+            float: right;
+        }
+
+        #id-next {
+            margin-left: 20px;
+            background-color: #39b3d7;
+        }
+
+        .cls-emp {
+            width: 100px;
+            height: 40px;
+        }
+
+        .btn:hover {
+            background: #21d0e2;
+        }
+
+        @media(min-width: 320px) and (max-width: 1024px) {
+            #brdcrmb {
+                display: none;
+            }
+
+            #id-hidetab {
+                display: block !important;
+            }
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+
+        }
+
+        .bg-light {
+            background-color: #9b999a !important;
+        }
+
+        .nav-link:hover {
+            background: #21d0e2;
+            color: white !important;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: white;
+            background: #21d0e2;
+        }
+
+        #logo {
+            width: 100%;
+        }
+
+        .no-outline:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="header (1).png" alt="logo" id="logo">
+    </div>
+    <div class="container">
+        <div class="row" id="id-hidetab" style="display:none">
+            <div class="col-12">
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-light">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="form-1.html">Personal Details <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="form2.html">Education</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Employee  details.html">Past Employment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="Bank Details.html">Bank Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="attachment.html">Attachment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Acknowledgement.html">Acknowledgement</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="row justify-content-center" id="brdcrmb">
+
+            <ul class="breadcrumb">
+                <li><a href="form-1.html">Personal Details</a></li>
+                <li><a href="form2.html">Education</a></li>
+                <li><a href="Employee  details.html">Past Employment</a></li>
+                <li class="active"><a href="Bank Details.html">Bank Details</a></li>
+                <li><a href="attachment.html">Attachments</a></li>
+                <li><a href="Acknowledgement.html">Acknowledgement</a></li>
+            </ul>
+
+        </div>
+        <form id="firstform" action="" name="validation" autocomplete="off">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div id="id-bank">Name of the Bank<span class="cls-required" >*</span></div>
+                    <input class="no-outline" type="text" id="id-bankname">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <span id="span-bankname">Please fill this field</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="acccountno">Account No<span class="cls-required">*</span></div>
+                    <input type="text" class="acccountno no-outline" id="id-accountno"
+                        onkeypress="return isNumber(event)">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <span id="span-accountno">Please fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="cls-branch">Branch<span class="cls-required">*</span></div>
+                    <input type="text" class="cls-branch no-outline" id="id-branch">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <span id="span-branch">Please fill this field</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="cls-ifsc">IFSC Code<span class="cls-required">*</span></div>
+                    <input type="text" class="cls-ifsc no-outline" id="id-ifsc">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <span id="span-ifsc">Please fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+        </form>
+        <div class="row">
+            <div class="col-3">
+                <button type="button" class="btn btn-secondary cls-emp" id="id-previous"><i class="fa fa-angle-left"
+                        aria-hidden="true"></i> Previous</button>
+            </div>
+            <div class="col-9">
+                <button type="button" class="btn btn-secondary cls-next cls-emp" id="id-next">Next ></button>
+                <button type="button" class="btn btn-secondary cls-next cls-emp" onclick="save()"
+                    id="id-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var bank = localStorage.getItem('Name of the Bank');
+            console.log(bank);
+            $("#id-bankname").val(bank);
+            var accountNumber = localStorage.getItem('Account No');
+            console.log(accountNumber);
+            $("#id-accountno").val(accountNumber);
+            var branch = localStorage.getItem('Branch');
+            console.log(branch);
+            $("#id-branch").val(branch);
+            var ifscCode = localStorage.getItem('IFSC Code');
+            console.log(ifscCode);
+            $("#id-ifsc").val(ifscCode);
+            $("#id-bankname").val(bank);
+            $("#span-bankname").hide();
+            $("#span-accountno").hide();
+            $("#span-branch").hide();
+            $("#span-ifsc").hide();
+        });
+        var id = localStorage.getItem('ID');
+
+        $("#id-save").click(function () {
+            var bankname = $("#id-bankname").val();
+            var accountno = $("#id-accountno").val();
+            var branch = $("#id-branch").val();
+            var ifsc = $("#id-ifsc").val();
+            //alert(ifsc);
+            if (bankname == '') {
+                $("#span-bankname").show();
+            }
+            if (accountno == '') {
+                $("#span-accountno").show();
+            }
+            if (branch == '') {
+                $("#span-branch").show();
+            }
+            if (ifsc == '') {
+                $("#span-ifsc").show();
+            }
+            if(data==''){
+                alert(1);
+            }
+            setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+        });
+        $('#id-bankname').blur(function () {
+            var empbankname = $('#id-bankname').val();
+            localStorage.setItem('Name of the Bank', empbankname);
+        });
+        $('#id-accountno').blur(function () {
+            var empaccountno = $('#id-accountno').val();
+            localStorage.setItem('Account No', empaccountno);
+        });
+        $('#id-branch').blur(function () {
+            var empbankbranch = $('#id-branch').val();
+            localStorage.setItem('Branch', empbankbranch);
+        });
+        $('#id-ifsc').blur(function () {
+            var empifsc = $('#id-ifsc').val();
+            localStorage.setItem('IFSC Code', empifsc);
+        });
+        function save() {
+            var emp = [];
+            var getValues = [];
+            var employement = [];
+            var pastdet = [];
+            var empbankdetails = {
+                "bankname": $("#id-bankname").val(),
+                "accountnumber": $("#id-accountno").val(),
+                "branchname": $("#id-branch").val(),
+                "ifsccode": $("#id-ifsc").val()
+            }
+
+            $.ajax({
+                url: 'http://localhost:3000/PersonalDetails/' + id,
+                type: 'GET',
+                contentType: 'application/json',
+                dataType: "json",
+                async: false,
+                data: JSON.stringify(empbankdetails),
+                success: function (data) {
+                    var data = data;
+                    console.log(data);
+                    var object1 = $.extend({}, data, empbankdetails);
+                    console.log(object1);
+                    $.ajax({
+                        url: 'http://localhost:3000/PersonalDetails/' + id,
+                        type: 'PUT',
+                        contentType: 'application/json',
+                        dataType: "json",
+                        async: false,
+                        data: JSON.stringify(object1),
+                        success: function (data) {
+
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+        }
+        $(document).on('change', 'input', function () {
+            $("#span-bankname").hide();
+        });
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        $("#id-previous").click(function () {
+            window.location.href = "./Employee  details.html";
+        });
+        $("#id-next").click(function () {
+            if ($('#id-bankname').val() !== '' && $('#id-accountno').val() !== '' && $('#id-branch').val() !== '' && $('#id-ifsc').val() !== '') {
+                window.location.href = "./attachment.html";
+            }
+            var bankname = $("#id-bankname").val();
+            var accountno = $("#id-accountno").val();
+            var branch = $("#id-branch").val();
+            var ifsc = $("#id-ifsc").val();
+            //alert(ifsc);
+            if (bankname == '') {
+                $("#span-bankname").show();
+            }
+            if (accountno == '') {
+                $("#span-accountno").show();
+            }
+            if (branch == '') {
+                $("#span-branch").show();
+            }
+            if (ifsc == '') {
+                $("#span-ifsc").show();
+            }
+        });
+        $("#id-bankname").on("change paste keyup", function () {
+            $("#span-bankname").hide();
+        });
+        $("#id-accountno").on("change paste keyup", function () {
+            $("#span-accountno").hide();
+        });
+        $("#id-branch").on("change paste keyup", function () {
+            $("#span-branch").hide();
+        });
+        $("#id-ifsc").on("change paste keyup", function () {
+            $("#span-ifsc").hide();
+        });
+        $('#id-bankname').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $('#id-branch').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $('#id-ifsc').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+
+        bootstrapValidate('#id-bankname', 'required:	Please select the Name of the Bank');
+        bootstrapValidate('#id-accountno', 'required:Please enter the account number');
+        bootstrapValidate('#id-branch', 'required:	Please enter the name of the base branch');
+        bootstrapValidate('#id-ifsc', 'required:	Please enter the IFSC Code of the base branch');
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

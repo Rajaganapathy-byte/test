@@ -1,0 +1,3906 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+
+
+
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link href="CSS.css" rel="stylesheet">
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script> -->
+    <!-- <script type="text/javascript">
+        (function () {
+            emailjs.init("user_rvihOCyc9ATKFqQZh1T0U");
+        })();
+    </script> -->
+
+</head>
+
+<body>
+    <div>
+        <img src="Group 7.png" alt="logo" id="headerimg">
+    </div>
+    <div class="container">
+        <div class="row" id="id-hidetab" style="display:none">
+            <div class="col-12">
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-light">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li id="page1" class="nav-item">
+                                <a class="nav-link" href="#">Personal Details</a>
+                            </li>
+                            <li id="page2" class="nav-item">
+                                <a class="nav-link" href="#">Education</a>
+                            </li>
+                            <li id="page3" class="nav-item">
+                                <a class="nav-link" href="#">Past Employment</a>
+                            </li>
+                            <li id="page4" class="nav-item">
+                                <a class="nav-link" href="#">Bank Details</a>
+                            </li>
+                            <li id="page5" class="nav-item">
+                                <a class="nav-link" href="#">Attachments</a>
+                            </li>
+                            <li id="page6" class="nav-item">
+                                <a class="nav-link" href="#">Acknowledgement</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="row justify-content-center" id="brdcrmb">
+
+            <ul class="breadcrumb">
+                <li id="form1"><a href="#">Personal Details</a></li>
+                <li id="form2"><a href="#">Education</a></li>
+                <li id="form3"><a href="#">Past Employment</a></li>
+                <li id="form4"><a href="#">Bank Details</a></li>
+                <li id="form5"><a href="#">Attachments</a></li>
+                <li id="form6"><a href="#">Acknowledgement</a></li>
+            </ul>
+
+        </div>
+        <br />
+        <div id="content1" class="hide-content">
+            <div class="padding">
+                <!----Personal Detail Feilds-->
+                <form class="needs-validation text-centered" id="form" autocomplete="off">
+                    <div class="row padding ">
+                        <!-----row1----->
+                        <div class="col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox form-group ">
+                                <div id="fieldname">First Name<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="firstname" class="input " id="firstname"
+                                    onKeyPress="return ValidateAlpha(event);" pattern="^[a-zA-Z0-9_.-]*$" required>
+                                <!-- <span id="span-firstname">Please enter your firstname</span> -->
+                            </div>
+                        </div>
+                        <div class=" col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox" id="float-right">
+                                <div id="fieldname">Last Name<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="lastname" class="input " id="lastname"
+                                    onKeyPress="return ValidateAlpha(event);" required>
+                                <!-- <span id="span-lastname">Please enter your lastname</span> -->
+                            </div>
+                        </div>
+                        <!----------------->
+                    </div>
+                    <div class="row padding">
+                        <!-----row2----->
+                        <div class="col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox form-group">
+                                <div id="fieldname">Mobile Number<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="mobilenumber" class="input " id="mobilenumber"
+                                    onKeypress="return isNumberKey(event)" required>
+                                <!-- <span id="span-mobilenumber">Please enter your Mobile Number</span> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox form-group ">
+                                <div id="fieldname">Email Id<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="email" class="input " id="email" placeholder="name@email.com"
+                                    required>
+                                <!-- <span id="span-email">Please enter your email ID</span> -->
+                            </div>
+                        </div>
+                        <!------------------>
+                    </div>
+                    <div class="row padding">
+                        <!-----row3----->
+                        <div class="col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox form-group" id="MS-div">
+                                <div id="fieldname">Marital Status<span class="text-danger">*</span></div>
+                                <select class="mdb-select md-form input" name="maritalstatus" id="maritalstatus"
+                                    required>
+                                    <option value=""></option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Seperated">Seperated</option>
+                                    <option value="Divorced">Divorced</option>
+                                </select>
+                                <!-- <span id="span-maritalstatus">Please select your Marital Status</span> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox  form-group">
+                                <div id="fieldname">Date of Birth<span class="text-danger">*</span>
+                                </div>
+                                <input id="datepicker" class="input" name="dateofbirth" placeholder="mm/dd/yyyy"
+                                    required>
+                                <!-- <span id="span-dateofbirth">Please select your date of birth</span> -->
+                                <script>
+                                    $('#datepicker').datepicker({
+                                        disableDates: function (date) {
+                                            const currentDate = new Date();
+                                            return date < currentDate ? true : false;
+                                        },
+                                        change: function (e) {
+                                            var empdateofbirth = $("#datepicker").val();
+                                            localStorage.setItem('dob', empdateofbirth);
+
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding">
+                        <!-----row4----->
+                        <div class="col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox form-group" id="GD-div">
+
+                                <div id="fieldname">Gender<span class="text-danger">*</span>
+                                    <span id="gender" name="group" style="margin-left: -50px;">
+                                        <input class="cls-male" name="group1" type="radio" id="male" value="Male"
+                                            style="margin-left: 10px;" checked required>
+                                        <span>Male </span>
+                                        <input class="cls-female" name="group1" type="radio" id="female" value="Female"
+                                            style="margin-left: 10px;" required>
+                                        <span> Female</span>
+                                        <input class="cls-other" name="group1" type="radio" id="other" value="Other"
+                                            style="margin-left: 10px;" required>
+                                        <span> Other</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox dropdown form-group" id="BG-div">
+                                <div id="fieldname">Blood Group<span class="text-danger">*</span>
+                                </div>
+                                <select class="mdb-select md-form input " name="bloodgroup" searchable="Search here.."
+                                    id="bloodgroup" required>
+                                    <option value=""></option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                                <!-- <span id="span-bloodgroup">Please select your Blood group</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding">
+                        <!-----row5----->
+                        <div class="col-sm-6 col-md-6 mb-6">
+                            <div class="inputBox form-group" id="PP-div">
+                                <div id="fieldname">Passport</div>
+                                <input type="text" name="passport" class="input form-control" id="passport">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox form-group">
+                                <div class="inputText" id="fieldname">Pan Number</div>
+                                <input type="text" name="pannumber" class="input form-control" id="pannumber">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding">
+                        <!-----row6----->
+                        <div class="col-sm-12 col-md-12 mb-12">
+                            <div class="inputBox form-group" id="AD-div">
+                                <div id="fieldname">Address<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="address" class="input form-control" id="address" required>
+                                <input type="text" name="address1" class="input form-control" id="address1" required>
+                                <!-- <span id="span-address">Please enter your address</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding">
+                        <!-----row7----->
+                        <div class="col-sm-6 col-md-6 mb-6" id="CT-div">
+                            <div class="inputBox ">
+                                <div id="fieldname">City<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="city" class="input" id="city" required>
+                                <!-- <span id="span-city">Please enter your City</span> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox " id="ST-div">
+                                <div id="fieldname">State<span class="text-danger">*</span>
+                                    </h6>
+                                </div>
+                                <div class="wrapper">
+                                    <input class="mdb-select md-form input " name="state" id="state" required>
+                                    <!-- <span id="span-state">Please enter your State</span> -->
+                                    <!-- <option value="" disabled selected></option>-->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding">
+                        <!-----row8----->
+                        <div class="col-sm-6 col-md-6 mb-6" id="ZP-div">
+                            <div class="inputBox ">
+                                <div id="fieldname">Zip Code<span class="text-danger">*</span>
+                                </div>
+                                <input type="text" name="zipcode" class="input" id="zipcode" required>
+                                <!-- <span id="span-zipcode">Please enter your Zip Code</span> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 mb-6" id="float-right">
+                            <div class="inputBox " id="CY-div">
+                                <div id="fieldname">Country<span class="text-danger">*</span>
+                                </div>
+                                <div class="wrapper">
+                                    <select class="mdb-select md-form input" name='country' searchable="Search here.."
+                                        id="country" required>
+                                        <option value=""></option>
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Aland Islands">Åland Islands</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Anguilla">Anguilla</option>
+                                        <option value="Antarctica">Antarctica</option>
+                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Aruba">Aruba</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia, Plurinational State of</option>
+                                        <option value="Bonaire">Bonaire, Sint Eustatius and Saba</option>
+                                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Bouvet Island">Bouvet Island</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="British Indian Ocean Territory">British Indian Ocean Territory
+                                        </option>
+                                        <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina Faso">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Republic">Central African Republic</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Christmas Island">Christmas Island</option>
+                                        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo">Congo</option>
+                                        <option value="Congo, the Democratic Republic of the">Congo, the Democratic
+                                            Republic of the
+                                        </option>
+                                        <option value="Cook Islands">Cook Islands</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                        <option value="Croatia">Croatia</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Curaçao">Curaçao</option>
+                                        <option value="Cyprus">Cyprus</option>
+                                        <option value="Czech Republic">Czech Republic</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                        <option value="Dominica">Dominica</option>
+                                        <option value="Dominican Republic">Dominican Republic</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                        <option value="Eritrea">Eritrea</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+                                        <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                                        <option value="Faroe Islands">Faroe Islands</option>
+                                        <option value="Fiji">Fiji</option>
+                                        <option value="FI">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="French Guiana">French Guiana</option>
+                                        <option value="French Polynesia">French Polynesia</option>
+                                        <option value="French Southern Territories">French Southern Territories</option>
+                                        <option value="Gabon">Gabon</option>
+                                        <option value="Gambia">Gambia</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="Gibraltar">Gibraltar</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Grenada">Grenada</option>
+                                        <option value="Guadeloupe">Guadeloupe</option>
+                                        <option value="Guam">Guam</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Guernsey">Guernsey</option>
+                                        <option value="Guinea">Guinea</option>
+                                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                        <option value="Guyana">Guyana</option>
+                                        <option value="Haiti">Haiti</option>
+                                        <option value="Heard Island and McDonald Islands">Heard Island and McDonald
+                                            Islands</option>
+                                        <option value="Holy See">Holy See (Vatican City State)</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="Hungary">Hungary</option>
+                                        <option value="Iceland">Iceland</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Iran">Iran, Islamic Republic of</option>
+                                        <option value="Iraq">Iraq</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Isle of Man">Isle of Man</option>
+                                        <option value="Israel">Israel</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Jamaica">Jamaica</option>
+                                        <option value="Japan<">Japan</option>
+                                        <option value="Jersey">Jersey</option>
+                                        <option value="Jordan">Jordan</option>
+                                        <option value="Kazakhstan">Kazakhstan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Kiribati">Kiribati</option>
+                                        <option value="Korea, Democratic People's Republic of">Korea, Democratic
+                                            People's Republic of
+                                        </option>
+                                        <option value="Korea, Republic of">Korea, Republic of</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                        <option value="Lao People's Democratic Republic">Lao People's Democratic
+                                            Republic</option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Lesotho">Lesotho</option>
+                                        <option value="Liberia">Liberia</option>
+                                        <option value="Libya">Libya</option>
+                                        <option value="Liechtenstein">Liechtenstein</option>
+                                        <option value="Lithuania">Lithuania</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+                                        <option value="Macao">Macao</option>
+                                        <option value="Macedonia">Macedonia, the former Yugoslav Republic of</option>
+                                        <option value="Madagascar">Madagascar</option>
+                                        <option value="Malawi">Malawi</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Maldives">Maldives</option>
+                                        <option value="Mali">Mali</option>
+                                        <option value="Malta">Malta</option>
+                                        <option value="Marshall Islands">Marshall Islands</option>
+                                        <option value="Martinique">Martinique</option>
+                                        <option value="Mauritania">Mauritania</option>
+                                        <option value="Mauritius">Mauritius</option>
+                                        <option value="Mayotte">Mayotte</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Micronesia">Micronesia, Federated States of</option>
+                                        <option value="Moldova">Moldova, Republic of</option>
+                                        <option value="Monaco">Monaco</option>
+                                        <option value="Mongolia">Mongolia</option>
+                                        <option value="Montenegro">Montenegro</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Mozambique">Mozambique</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+                                        <option value="Nauru">Nauru</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="New Caledonia">New Caledonia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Niue">Niue</option>
+                                        <option value="Norfolk Island">Norfolk Island</option>
+                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                        <option value="Norway">Norway</option>
+                                        <option value="Oman">Oman</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Palau">Palau</option>
+                                        <option value="Palestinian Territory">Palestinian Territory, Occupied</option>
+                                        <option value="Panama">Panama</option>
+                                        <option value="Papua New Guinea">Papua New Guinea</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Pitcairn">Pitcairn</option>
+                                        <option value="Poland">Poland</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Puerto Rico">Puerto Rico</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Réunion">Réunion</option>
+                                        <option value="Romania">Romania</option>
+                                        <option value="Russian Federation">Russian Federation</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Saint Barthélemy">Saint Barthélemy</option>
+                                        <option value="Saint Helena, Ascension and Tristan da Cunha">Saint Helena,
+                                            Ascension and Tristan
+                                            da Cunha</option>
+                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                        <option value="Saint Lucia">Saint Lucia</option>
+                                        <option value="Saint Martin (French part)">Saint Martin (French part)</option>
+                                        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the
+                                            Grenadines</option>
+                                        <option value="Samoa">Samoa</option>
+                                        <option value="San Marino">San Marino</option>
+                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Senegal">Senegal</option>
+                                        <option value="Serbia">Serbia</option>
+                                        <option value="Seychelles">Seychelles</option>
+                                        <option value="Sierra LeoneL">Sierra Leone</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
+                                        <option value="Slovakia">Slovakia</option>
+                                        <option value="Slovenia">Slovenia</option>
+                                        <option value="Solomon Islands">Solomon Islands</option>
+                                        <option value="Somalia">Somalia</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="South Georgia and the South Sandwich Islands">South Georgia and
+                                            the South
+                                            Sandwich Islands</option>
+                                        <option value="South Sudan">South Sudan</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Sudan">Sudan</option>
+                                        <option value="Suriname">Suriname</option>
+                                        <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                                        <option value="Swaziland">Swaziland</option>
+                                        <option value="Sweden">Sweden</option>
+                                        <option value="Switzerland">Switzerland</option>
+                                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                                        <option value="Taiwan, Province of China">Taiwan, Province of China</option>
+                                        <option value="Tajikistan">Tajikistan</option>
+                                        <option value="Tanzania, United Republic of">Tanzania, United Republic of
+                                        </option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Timor-Leste">Timor-Leste</option>
+                                        <option value="Togo">Togo</option>
+                                        <option value="Tokelau">Tokelau</option>
+                                        <option value="Tonga">Tonga</option>
+                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                        <option value="Tunisia">Tunisia</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Turkmenistan">Turkmenistan</option>
+                                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                                        <option value="Tuvalu">Tuvalu</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Ukraine">Ukraine</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United States Minor Outlying Islands">United States Minor
+                                            Outlying Islands</option>
+                                        <option value="Uruguay">Uruguay</option>
+                                        <option value="Uzbekistan">Uzbekistan</option>
+                                        <option value="Vanuatu">Vanuatu</option>
+                                        <option value="Venezuela, Bolivarian Republic of">Venezuela, Bolivarian Republic
+                                            of</option>
+                                        <option value="Viet Nam">Viet Nam</option>
+                                        <option value="Virgin Islands, British">Virgin Islands, British</option>
+                                        <option value="Virgin Islands">Virgin Islands, U.S.</option>
+                                        <option value="Wallis and Futuna">Wallis and Futuna</option>
+                                        <option value="Western Sahara">Western Sahara</option>
+                                        <option value="Yemen">Yemen</option>
+                                        <option value="Zambia">Zambia</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                                    <!-- <span id="span-country">Please select your Country</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row padding">
+                    <div class="col-sm-6 col-md-9 col-lg-10"></div>
+                    <div class="col-sm-6 col-md-3 col-lg-2 btn" id="bottombtn1">
+                        <button type="button" class="btn" id="save1" onclick="savePersonalDetails()">Save</button>
+                        <button type="button" class="btn" id="next1">Next<i class="fa fa-chevron-right"
+                                style="font-size:10px;transform:translateX(15px);"></i></button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <script>
+            var counter = 0;
+            var data = [];
+            $(document).ready(function () {
+                $("#span-firstname").hide();
+                $("#span-lastname").hide();
+                $("#span-mobilenumber").hide();
+                $("#span-email").hide();
+                $("#span-maritalstatus").hide();
+                $("#span-dateofbirth").hide();
+                $("#span-bloodgroup").hide();
+                $("#span-address").hide();
+                $("#span-city").hide();
+                $("#span-state").hide();
+                $("#span-zipcode").hide();
+                $("#span-country").hide();
+                $("#mobilenumber").attr('maxlength', '10');
+                $("#zipcode").attr('maxlength', '6');
+                var getemppersonal = localStorage.getItem('Data');
+                var getemppersonaldetails = JSON.parse(getemppersonal);
+                console.log(getemppersonaldetails);
+                var empfirstname = localStorage.getItem('firstname');
+                var emplastname = localStorage.getItem('lastname');
+                var empmobilenumber = localStorage.getItem('mobilenumber');
+                var empemail = localStorage.getItem('email');
+                var empmaritalstatus = localStorage.getItem('maritalstatus');
+                var empdateofbirth = localStorage.getItem('dob');
+                var empgender = localStorage.getItem('gender');
+                var empbloodgroup = localStorage.getItem('bloodgroup');
+                var emppassport = localStorage.getItem('passport');
+                var emppannumber = localStorage.getItem('pannumber');
+                var empaddress = localStorage.getItem('address');
+                var empaddress1 = localStorage.getItem('address1');
+                var empcity = localStorage.getItem('city');
+                var empstate = localStorage.getItem('state');
+                var empcountry = localStorage.getItem('country');
+                var empzipcode = localStorage.getItem('zipcode');
+                if (empgender == "Male") {
+                    $("#male").prop("checked", true);
+                }
+                if (empgender == "Female") {
+                    $("#female").prop("checked", true);
+                }
+                if (empgender == "Other") {
+                    $("#other").prop("checked", true);
+                }
+                $('#firstname').val(empfirstname);
+                $('#lastname').val(emplastname);
+                $('#email').val(empemail);
+                $('#mobilenumber').val(empmobilenumber);
+                $('#maritalstatus').val(empmaritalstatus);
+                $('#datepicker').val(empdateofbirth);
+                $('#bloodgroup').val(empbloodgroup);
+                $('#passport').val(emppassport);
+                $('#pannumber').val(emppannumber);
+                $('#address').val(empaddress);
+                $('#address1').val(empaddress1);
+                $('#city').val(empcity);
+                $('#state').val(empstate);
+                $('#country').val(empcountry);
+                $('#zipcode').val(empzipcode);
+                $('#firstname').val(getemppersonaldetails.firstname);
+                $('#lastname').val(getemppersonaldetails.lastname);
+                $("#mobilenumber").val(getemppersonaldetails.mobilenumber);
+                $("#email").val(getemppersonaldetails.email);
+                $("#maritalstatus").val(getemppersonaldetails.maritalstatus);
+                $("#datepicker").val(getemppersonaldetails.dateofbirth);
+                $("#mobilenumber").attr('maxlength', '10');
+                var gender = getemppersonaldetails.gender;
+                console.log(gender);
+                if (gender == "Male") {
+                    $("#male").prop("checked", true);
+                }
+                if (gender == "Female") {
+                    $("#female").prop("checked", true);
+                }
+                if (gender == "Other") {
+                    $("#other").prop("checked", true);
+                }
+                $('#bloodgroup').val(getemppersonaldetails.bloodgroup);
+                $('#passport').val(getemppersonaldetails.passport);
+                $('#pannumber').val(getemppersonaldetails.pannumber);
+                $("#address").val(getemppersonaldetails.address);
+                $('#address1').val(getemppersonaldetails.address1);
+                $('#state').val(getemppersonaldetails.state);
+                $("#city").val(getemppersonaldetails.city);
+                $("#state").val(getemppersonaldetails.state);
+                $("#country").val(getemppersonaldetails.country);
+                $("#zipcode").val(getemppersonaldetails.zipcode);
+
+                var personalDetails = localStorage.getItem('Data');
+                var personalDetails = JSON.parse(personalDetails);
+                $("#zipcode").attr('maxlength', '6');
+
+            });
+
+            function savePersonalDetails() {
+                counter++;
+                // alert("Your Reference ID is: " + "EMP00" + counter);
+                var personalDetails = {
+                    "firstname": $('#firstname').val(),
+                    "lastname": $('#lastname').val(),
+                    "mobilenumber": $('#mobilenumber').val(),
+                    "email": $('#email').val(),
+                    "maritalstatus": $('#maritalstatus').val(),
+                    "dateofbirth": $('#datepicker').val(),
+                    "gender": $('input[name="group1"]:checked').val(),
+                    "bloodgroup": $('#bloodgroup').val(),
+                    "passport": $('#passport').val(),
+                    "pannumber": $('#pannumber').val(),
+                    "address": $('#address').val(),
+                    "address1": $('#address1').val(),
+                    "state": $('#state').val(),
+                    "city": $('#city').val(),
+                    "country": $('#country').val(),
+                    "zipcode": $('#zipcode').val()
+                }
+                localStorage.setItem('Data', JSON.stringify(personalDetails));
+                // $.ajax({
+                //   url: 'http://localhost:3000/PersonalDetails',
+                //   type: 'POST',
+                //   contentType: 'application/json',
+                //   dataType: "json",
+                //   async: false,
+                //   data: JSON.stringify(personalDetails),
+                //   success: function (data) {
+                //     console.log(personalDetails);
+                //     // localStorage.setItem('data',data);
+                //     // console.log(data.id);
+                //     localStorage.setItem('ID', data.id);
+                //   }
+                // });
+                // data.push(personalDetails);
+                // // console.log(data);
+                // localStorage.setItem('Data', JSON.stringify(personalDetails));
+                setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+
+            }
+
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+
+                return true;
+            }
+
+
+
+
+            bootstrapValidate('#firstname', 'required:Please enter your firstname');
+            bootstrapValidate('#lastname', 'required:Please enter your Last Name!');
+            bootstrapValidate('#mobilenumber', 'required:Please enter your Mobile Number');
+            bootstrapValidate('#mobilenumber', 'max:10:Mobile number cannot exceed 10 characters');
+            bootstrapValidate('#email', 'email:Please enter a valid email ID');
+            bootstrapValidate('#maritalstatus', 'required:Please select your Marital Status');
+            bootstrapValidate('#bloodgroup', 'required:Please select your Blood group');
+            bootstrapValidate('#address', 'required:Please enter your address');
+            bootstrapValidate('#city', 'required:Please enter your City');
+            bootstrapValidate('#state', 'required:Please enter your State');
+            bootstrapValidate('#zipcode', 'required:Please enter your Zip Code');
+
+
+            function isNumberKey(evt) {
+                //var e = evt || window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode
+                if (charCode != 46 && charCode > 31
+                    && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+
+            function ValidateAlpha(evt) {
+                var keyCode = (evt.which) ? evt.which : evt.keyCode
+                if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32)
+
+                    return false;
+                return true;
+            }
+
+
+
+
+
+            // document.getElementById('save').addEventListener('click', test);
+
+            // function test() {
+            //   xdialog.confirm('Are you sure you want to save this?', function () {
+            //     // do work here if ok/yes selected...
+            //     save();
+            //   }, {
+            //     style: 'width:420px;font-size:13px;',
+            //     buttons: {
+            //       ok: 'yes',
+            //       cancel: 'no'
+            //     },
+
+            //   });
+            // }
+            $("#next").click(function () {
+                //  if ($('#firstname').val() !== '' && $('#lastname').val() !== '' && $('#mobilenumber').val() !== '' && $('#maritalstatus').val() !== '' && $('#email').val() !== '' && $('#datepicker').val() !== '' && $('input[name="group1"]:checked').val() && $('#bloodgroup').val !== '' && $('#address').val !== '' && $('#address1').val !== '' && $('#city').val !== '' && $('#state').val !== '' && $('#zipcode').val !== '' && $('#country').val !== '') {
+                window.open("./Education Details.html", '_self');
+                //  }
+
+                var firstname = $('#firstname').val();
+                var lastname = $('#lastname').val();
+                var mobilenumber = $('#mobilenumber').val();
+                var maritalstatus = $('#maritalstatus').val();
+                console.log(maritalstatus);
+                var email = $('#email').val();
+                var dateofbirth = $('#datepicker').val();
+                console.log(dateofbirth);
+                var bloodgroup = $('#bloodgroup').val();
+                var address = $('#address').val();
+                var city = $('#city').val();
+                var state = $('#state').val();
+                var zipcode = $('#zipcode').val();
+                var country = $('#country').val();
+                console.log(country);
+                if (firstname == '') {
+                    $("#span-firstname").show();
+                }
+                if (lastname == '') {
+                    $("#span-lastname").show();
+                }
+                if (mobilenumber == '') {
+                    $("#span-mobilenumber").show();
+                }
+                if (email == '') {
+                    $("#span-email").show();
+                }
+                if (maritalstatus == '') {
+                    $("#span-maritalstatus").show();
+                }
+                if (dateofbirth == '') {
+                    $("#span-dateofbirth").show();
+                }
+                if (bloodgroup == '') {
+                    $("#span-bloodgroup").show();
+                }
+                if (address == '') {
+                    $("#span-address").show();
+                }
+                if (city == '') {
+                    $("#span-city").show();
+                }
+                if (state == '') {
+                    $("#span-state").show();
+                }
+                if (zipcode == '') {
+                    $("#span-zipcode").show();
+                }
+                if (country == '') {
+                    $("#span-country").show();
+                }
+            });
+            $("#firstname").on("change paste keyup", function () {
+                $("#span-firstname").hide();
+            });
+            $("#lastname").on("change paste keyup", function () {
+                $("#span-lastname").hide();
+            });
+            $("#mobilenumber").on("change paste keyup", function () {
+                $("#span-mobilenumber").hide();
+            });
+            $("#email").on("change paste keyup", function () {
+                $("#span-email").hide();
+            });
+            $("#maritalstatus").on("change paste keyup", function () {
+                $("#span-maritalstatus").hide();
+            });
+            $("#datepicker").on("click", function () {
+                $("#span-dateofbirth").hide();
+            });
+            $(".gj-icon").on("click", function () {
+                $("#span-dateofbirth").hide();
+            });
+            $("#bloodgroup").on("change paste keyup", function () {
+                $("#span-bloodgroup").hide();
+            });
+            $("#address").on("change paste keyup", function () {
+                $("#span-address").hide();
+            });
+            $("#city").on("change paste keyup", function () {
+                $("#span-city").hide();
+            });
+            $("#state").on("change paste keyup", function () {
+                $("#span-state").hide();
+            });
+            $("#zipcode").on("change paste keyup", function () {
+                $("#span-zipcode").hide();
+            });
+            $("#country").on("change paste keyup", function () {
+                $("#span-country").hide();
+            });
+            $('#zipcode').keypress(function (e) {
+                var regex = new RegExp("^[A-Z a-z 0-9 !@#$%^&*()]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            $('#passport').keypress(function (e) {
+                var regex = new RegExp("^[A-Z a-z 0-9]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            $('#pannumber').keypress(function (e) {
+                var regex = new RegExp("^[A-Z a-z 0-9]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            $('#city').keypress(function (e) {
+                var regex = new RegExp("^[A-Z a-z]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            $('#state').keypress(function (e) {
+                var regex = new RegExp("^[A-Z a-z]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            $('#firstname').blur(function () {
+                var firstname = $('#firstname').val();
+                localStorage.setItem('firstname', firstname);
+            });
+            $('#lastname').blur(function () {
+                var lastname = $('#lastname').val();
+                localStorage.setItem('lastname', lastname);
+            });
+            $('#mobilenumber').blur(function () {
+                var mobilenumber = $('#mobilenumber').val();
+                localStorage.setItem('mobilenumber', mobilenumber);
+            });
+            $('#email').blur(function () {
+                var email = $('#email').val();
+                localStorage.setItem('email', email);
+            });
+            $('#maritalstatus').blur(function () {
+                var maritalstatus = $('#maritalstatus').val();
+                localStorage.setItem('maritalstatus', maritalstatus);
+            });
+
+            $('#datepicker').blur(function () {
+                var dateofbirth = $('#datepicker').val();
+                localStorage.setItem('dateofbirth', dateofbirth);
+            });
+
+            $('#gender').blur(function () {
+                var gender = $('#gender').val();
+                localStorage.setItem('gender', gender);
+            });
+
+            $('#bloodgroup').blur(function () {
+                var bloodgroup = $('#bloodgroup').val();
+                localStorage.setItem('bloodgroup', bloodgroup);
+            });
+
+            $('#passport').blur(function () {
+                var passport = $('#passport').val();
+                localStorage.setItem('passport', passport);
+            });
+
+            $('#pannumber').blur(function () {
+                var pannumber = $('#pannumber').val();
+                localStorage.setItem('pannumber', pannumber);
+            });
+
+            $('#address').blur(function () {
+                var address = $('#address').val();
+                localStorage.setItem('address', address);
+            });
+            $('#address1').blur(function () {
+                var address1 = $('#address1').val();
+                localStorage.setItem('address1', address1);
+            });
+            $('#city').blur(function () {
+                var city = $('#city').val();
+                localStorage.setItem('city', city);
+            });
+            $('#state').blur(function () {
+                var state = $('#state').val();
+                localStorage.setItem('state', state);
+            });
+            $('#country').blur(function () {
+                var country = $('#country').val();
+                localStorage.setItem('country', country);
+            });
+            $('#zipcode').blur(function () {
+                var zipcode = $('#zipcode').val();
+                localStorage.setItem('zipcode', zipcode);
+            });
+        </script>
+        <div id="content2" class="hide-content">
+
+            <body>
+                <div id=form2 autocomplete="off">
+                    <!----header image----->
+                    <!----Breadcrumb----->
+                    <p class="padding">
+                    <h5>Educational Qualifications<span class="text-danger">*</span></h5>
+                    </p>
+                    <div class="row">
+                        <div class="table-responsive" style="margin-top: 20px;">
+                            <!-----------table1--------->
+                            <!--THE CONTAINER WHERE WE'll ADD THE DYNAMIC TABLE-->
+                            <div class="container" id="cont"> </div>
+                            <p>
+                                <input type="button" id="addRow" value="Add+" onclick="addRow()" disabled />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-----table1-end-------->
+                <script>
+                    var empdeg = [];
+                    var empedu = [];
+                    var empedu1 = [];
+                    var empedu2 = [];
+                    var empedu3 = [];
+                    var empedu4 = [];
+                    var trinst = [];
+                    var th = [];
+                    var tr1 = [];
+                    var tr2 = [];
+                    var tr3 = [];
+                    var tr4 = [];
+                    var tr5 = [];
+                    var getvalues = [];
+                    var getallempdegvalues = [];
+                    var TableData = [];
+                    var markup;
+                    // var values;
+                    $(document).ready(function () {
+                        $("#span-edudegree").hide();
+                        createTables();
+                        // localStorage.getItem('deginst');
+                        // localStorage.getItem('prof');
+                        var Year = localStorage.getItem('year');
+                        $('#inputt').val(Year);
+
+                        var specialization = localStorage.getItem('specialization');
+                        $('#inputSpecialization').val(specialization);
+
+                        var Degree = localStorage.getItem('degree');
+                        $('#inputDeg').val(Degree);
+
+                        var Institute = localStorage.getItem('institute');
+                        $('#inputInstitute').val(Institute);
+
+                        var profsoc = localStorage.getItem('Prof');
+                        $('#input').val(profsoc);
+
+                        var membersince = localStorage.getItem('member');
+                        $('#inputs').val(membersince);
+
+                        var alledudet = localStorage.getItem('trdeg');
+                        var alledudetails = JSON.parse(alledudet);
+                        console.log(alledudetails);
+                        //  $('#input').val(alledudetails.Degree);
+                        localStorage.getItem('tr');
+                        var tredu = localStorage.getItem('tr');
+                        var tredudet = JSON.parse(tredu);
+                        console.log(tredudet);
+                        var getempeducationdeg = localStorage.getItem('deginst');
+                        getvalues = JSON.parse(getempeducationdeg);
+                        console.log(getvalues);
+                        var getempeducationprof = localStorage.getItem('prof');
+                        getvaluesprof = JSON.parse(getempeducationprof);
+                        console.log(getvaluesprof);
+
+
+                        var empTab = document.getElementById('empTable');
+
+                        $(getvalues).each(function (i, item) {
+                            console.log(item, i);
+                            // $("#empTable").append(getvalues[i]);
+                            markup = `<tr><td><input type="input"  name='Degree' id='inputDeg' autocomplete="off" value='${item.Degree}'></td><td><input type='text' name='Year' id='inputt' autocomplete="off" maxlength='4' value='${item.Year}'></td><td><input type='input' name='Institute' id='inputInstitute' autocomplete="off" value='${item.Institute}'></td><td><input type='input' name='Specialization' id='inputSpecialization' autocomplete="off" value='${item.Specialization}'></td><td><input type='input' id='input'></td></tr>`;
+                            // $("#empTable").removeRow(this);
+                            $("#tablerow1").remove();
+                            $("#empTable").append(markup);
+                            $("#addRow").prop('disabled', false);
+                        });
+                        $(getvaluesprof).each(function (i, item) {
+                            console.log(item, i);
+                            var markup1 = `<tr><td><input  name='Prof' id='input' autocomplete="off" value='${item.ProfessionalSocietyCertification}'></td><td><input type='number' name='Member' id='inputs' autocomplete="off" maxlength='4' value='${item.MemberSince}'></td><td><input type='input' id='input'></td></tr>`;
+                            $("#tablerow2").remove();
+                            $("#empTable1").append(markup1);
+                            $("#addRow1").prop('disabled', false);
+
+                        });
+                        var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+                        var tr = empTab.insertRow(rowCnt);
+                        tr.setAttribute('id', 'tablerow1');     // TABLE ROW.
+                        tr = empTab.insertRow(rowCnt);
+
+
+
+
+
+                    });
+                    // ARRAY FOR HEADER.
+                    var trdeg = [];
+                    var trdeg1 = [];
+                    var trdeg2 = [];
+                    var trdeg3 = [];
+                    var trdeg4 = [];
+                    var trdeginstspl = [];
+                    var arrHead = [];
+                    arrHead = ['Degree', 'Year', 'Institute', 'Specialization', 'Actions'];      // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
+
+                    // FIRST CREATE A TABLE STRUCTURE BY ADDING A FEW HEADERS AND
+                    // ADD THE TABLE TO YOUR WEB PAGE.
+                    function createTealiumTable() {
+                        var empTable = document.createElement('table');
+                        empTable.setAttribute('id', 'empTable');            // SET THE TABLE ID.
+
+                        tr = empTable.insertRow(0);
+
+                        for (var h = 0; h < arrHead.length; h++) {
+                            var th = document.createElement('th');          // TABLE HEADER.
+                            th.innerHTML = arrHead[h];
+                            tr.appendChild(th);
+                        }
+
+                        var div = document.getElementById('cont');
+                        div.appendChild(empTable);    // ADD THE TABLE TO YOUR WEB PAGE.
+                        ////DEFAULT ROW
+
+                        var empTab = document.getElementById('empTable');
+
+                        var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+                        var tr = empTab.insertRow(rowCnt);
+                        // TABLE ROW.
+                        tr = empTab.insertRow(rowCnt);
+                        tr.setAttribute('id', 'tablerow1');
+                        var c;
+                        var ele;
+
+                        for (c = 0; c < arrHead.length; c++) {
+                            var td = document.createElement('td');          // TABLE DEFINITION.
+                            td = tr.insertCell(c);
+                            ele = document.createElement('input');
+                            console.log(td);
+                            if (c == 1) {
+                                td.innerHTML = '<input type="text" id="inputt" value="" class="education" maxlength="4" autocomplete="off"/>';
+                                $("#inputt").keypress(function (e) {
+                                    var regex = new RegExp("^[0-9\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+                                $('#inputt').blur(function () {
+                                    var empyear = $('#inputt').val();
+                                    localStorage.setItem('year', empyear);
+                                });
+
+
+                            }
+                            else if (c == 3) {
+                                console.log(arrHead);
+                                // CREATE AND ADD TEXTBOX IN EACH CELL.
+
+                                td.innerHTML = '<input type="text" id="inputSpecialization" value="" class="education" autocomplete="off"/>';
+                                $("#inputSpecialization").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+                                $('#inputSpecialization').blur(function () {
+                                    var empspecialization = $('#inputSpecialization').val();
+                                    localStorage.setItem('specialization', empspecialization);
+                                });
+
+
+
+                                // FIRST COLUMN.
+
+                            }
+                            else if (c == 0) {
+
+                                td.innerHTML = '<input type="text" id="inputDeg" value="" class="education" autocomplete="off"/>';
+                                $("#inputDeg").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z.\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+                                $('#inputDeg').blur(function () {
+                                    var empdegree = $('#inputDeg').val();
+                                    localStorage.setItem('degree', empdegree);
+                                });
+
+                            }
+                            else if (c == 2) {
+                                // ele.setAttribute('type', 'text');
+                                // ele.setAttribute('value', '');
+                                // ele.setAttribute('id', 'inputInstitute');
+                                // ele.setAttribute('class', 'education');
+                                td.innerHTML = '<input type="text" id="inputInstitute" value="" class="education" autocomplete="off"/>';
+                                $("#inputInstitute").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z.\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+                                $('#inputInstitute').blur(function () {
+                                    var empinstitute = $('#inputInstitute').val();
+                                    localStorage.setItem('institute', empinstitute);
+                                });
+
+                                // td.appendChild(ele);
+                            }
+
+                            else {
+                                td.innerHTML = '<input type="button" id="disable" value="Remove">';
+
+                                // ADD A BUTTON.
+
+                            }
+
+
+
+                        }
+
+
+
+                    }
+
+
+                    // ADD A NEW ROW TO THE TABLE.s
+                    function addRow() {
+
+                        var empTab = document.getElementById('empTable');
+
+                        var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+                        var tr = empTab.insertRow(rowCnt);      // TABLE ROW.
+                        tr = empTab.insertRow(rowCnt);
+                        var c;
+                        for (c = 0; c < arrHead.length; c++) {
+                            var td = document.createElement('td');          // TABLE DEFINITION.
+                            td = tr.insertCell(c);
+                            ele = document.createElement('input');
+
+                            if (c == 1) {
+                                td.innerHTML = '<input type="text" id="inputt" value="" class="education" maxlength="4" autocomplete="off"/>';
+                                $("#inputt").keypress(function (e) {
+                                    var regex = new RegExp("^[0-9\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+
+                                $('#inputt').blur(function () {
+                                    var empyear = $('#inputt').val();
+                                    localStorage.setItem('year', empyear);
+                                });
+
+                            }
+                            else if (c == 3) {
+                                console.log(arrHead);
+                                // CREATE AND ADD TEXTBOX IN EACH CELL.
+
+                                td.innerHTML = '<input type="text" id="inputSpecialization" value="" class="education" autocomplete="off" />';
+                                $("#inputSpecialization").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+
+                                $('#inputSpecialization').blur(function () {
+                                    var empspecialization = $('#inputSpecialization').val();
+                                    localStorage.setItem('specialization', empspecialization);
+                                });
+
+
+                                // FIRST COLUMN.
+
+                            }
+                            else if (c == 0) {
+                                td.innerHTML = '<input type="text" id="inputDeg" value="" class="education" autocomplete="off"/>';
+                                $("#inputDeg").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z.\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+
+                                $('#inputDeg').blur(function () {
+                                    var empdegree = $('#inputDeg').val();
+                                    localStorage.setItem('degree', empdegree);
+                                });
+                            }
+                            else if (c == 2) {
+                                td.innerHTML = '<input type="text" id="inputInstitute" value="" class="education" autocomplete="off"/>';
+                                $("#inputInstitute").keypress(function (e) {
+                                    var regex = new RegExp("^[a-z A-Z.\\-\\s]+$");
+                                    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                    if (regex.test(str)) {
+                                        return true;
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                });
+
+                                $('#inputInstitute').blur(function () {
+                                    var empinstitute = $('#inputInstitute').val();
+                                    localStorage.setItem('institute', empinstitute);
+                                });
+
+
+                            }
+                            else {
+
+                                td.innerHTML = '<input type="button" id="remove" value="Remove" onclick="removeRow(this)">';
+
+
+
+
+                            }
+
+
+                        }
+                    }
+
+                    // DELETE TABLE ROW.
+                    function removeRow(oButton) {
+                        var empTab = document.getElementById('empTable');
+                        empTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+                    }
+
+                    // EXTRACT AND SUBMIT TABLE DATA.
+                    function submitEducationDetails() {
+                        var myTab = document.getElementById('empTable');
+                        var values = new Array();
+                        // LOOP THROUGH EACH ROW OF THE TABLE.
+                        for (row = 1; row < myTab.rows.length - 1; row++) {
+                            for (c = 0; c < myTab.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
+
+
+                                var element = myTab.rows.item(row).cells[c];
+                                console.log(element.childNodes[0].type);
+                                if (element.childNodes.length >= 0) {
+                                    values.push("" + element.childNodes[0].value + "");
+                                }
+
+
+                            }
+                        }
+
+                        // SHOW THE RESULT IN THE CONSOLE WINDOW.
+                        if (values.length >= 3) {
+                            trdeg = {
+                                'Degree': values[0],
+                                'Year': values[1],
+                                'Institute': values[2],
+                                'Specialization': values[3]
+                            }
+                            trdeginstspl = [trdeg];
+                        }
+                        if (values.length >= 8) {
+                            trdeg = {
+                                'Degree': values[0],
+                                'Year': values[1],
+                                'Institute': values[2],
+                                'Specialization': values[3]
+                            }
+                            trdeg1 = {
+                                'Degree': values[5],
+                                'Year': values[6],
+                                'Institute': values[7],
+                                'Specialization': values[8]
+                            }
+                            trdeginstspl = [trdeg, trdeg1];
+                        }
+                        if (values.length >= 13) {
+                            trdeg = {
+                                'Degree': values[0],
+                                'Year': values[1],
+                                'Institute': values[2],
+                                'Specialization': values[3]
+                            }
+                            trdeg1 = {
+                                'Degree': values[5],
+                                'Year': values[6],
+                                'Institute': values[7],
+                                'Specialization': values[8]
+                            }
+                            trdeg2 = {
+                                'Degree': values[10],
+                                'Year': values[11],
+                                'Institute': values[12],
+                                'Specialization': values[13]
+                            }
+                            trdeginstspl = [trdeg, trdeg1, trdeg2];
+                        }
+                        if (values.length >= 18) {
+                            trdeg = {
+                                'Degree': values[0],
+                                'Year': values[1],
+                                'Institute': values[2],
+                                'Specialization': values[3]
+                            }
+                            trdeg1 = {
+                                'Degree': values[5],
+                                'Year': values[6],
+                                'Institute': values[7],
+                                'Specialization': values[8]
+                            }
+                            trdeg2 = {
+                                'Degree': values[10],
+                                'Year': values[11],
+                                'Institute': values[12],
+                                'Specialization': values[13]
+                            }
+                            trdeg3 = {
+                                'Degree': values[15],
+                                'Year': values[16],
+                                'Institute': values[17],
+                                'Specialization': values[18]
+                            }
+                            trdeginstspl = [trdeg, trdeg1, trdeg2, trdeg3];
+                        }
+                        if (values.length >= 23) {
+                            trdeg = {
+                                'Degree': values[0],
+                                'Year': values[1],
+                                'Institute': values[2],
+                                'Specialization': values[3]
+                            }
+                            trdeg1 = {
+                                'Degree': values[5],
+                                'Year': values[6],
+                                'Institute': values[7],
+                                'Specialization': values[8]
+                            }
+                            trdeg2 = {
+                                'Degree': values[10],
+                                'Year': values[11],
+                                'Institute': values[12],
+                                'Specialization': values[13]
+                            }
+                            trdeg3 = {
+                                'Degree': values[15],
+                                'Year': values[16],
+                                'Institute': values[17],
+                                'Specialization': values[18]
+                            }
+                            trdeg4 = {
+                                'Degree': values[20],
+                                'Year': values[21],
+                                'Institute': values[22],
+                                'Specialization': values[23]
+                            }
+                            trdeginstspl = [trdeg, trdeg1, trdeg2, trdeg3, trdeg4];
+                        }
+                        localStorage.setItem('deginst', JSON.stringify(trdeginstspl));
+                        localStorage.setItem('trdeg', JSON.stringify(trdeg));
+                        localStorage.setItem('trdeg1', JSON.stringify(trdeg1));
+                        localStorage.setItem('trdeg2', JSON.stringify(trdeg2));
+                        localStorage.setItem('trdeg3', JSON.stringify(trdeg3));
+                        localStorage.setItem('trdeg4', JSON.stringify(trdeg4));
+                        console.log(trdeg);
+                        console.log(trdeg1);
+                        console.log(trdeg2);
+                        console.log(trdeg3);
+                        console.log(trdeg4);
+                        console.log(trdeginstspl);
+                        console.log(values.length);
+                        console.log(values[4]);
+
+                    }
+                    $(document).on('keyup', '#inputSpecialization', function () {
+                        $("#disable").prop('disabled', false);
+                        $("#addRow").prop('disabled', false);
+                        $("#disable").css({ 'background': '#646464' });
+                        $('#disable').click(function () {
+                            $(".education").val('');
+                        });
+                    });
+                    $(document).on('keyup', '#inputDeg', function () {
+                        $("#disable").prop('disabled', false);
+                        $("#disable").css({ 'background': '#646464' });
+                        $('#disable').click(function () {
+                            $(".education").val('');
+                        });
+                    });
+                    $(document).on('keyup', '#inputInstitute', function () {
+                        $("#disable").prop('disabled', false);
+                        $("#disable").css({ 'background': '#646464' });
+                        $('#disable').click(function () {
+                            $(".education").val('');
+                        });
+                    });
+                    $(document).on('keyup', '#inputt', function () {
+                        $("#disable").prop('disabled', false);
+                        $("#disable").css({ 'background': '#646464' });
+                        $('#disable').click(function () {
+                            $(".education").val('');
+                        });
+                    });
+
+                </script>
+                <!-- <span id="span-edudegree">Please enter your education details</span> -->
+                <p class="padding" onload="creatTable1()">
+                <h5>Professional Memberships/Certifications</h5>
+                </p>
+                <div class="row">
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <!-----table2-->
+
+                        <!--THE CONTAINER WHERE WE'll ADD THE DYNAMIC TABLE-->
+
+                        <div class="container" id="cont1"> </div>
+                        <p>
+                            <input type="button" id="addRow1" value="Add+" onclick="addRow1()" disabled />
+                        </p>
+
+                        <!-----table1-end-------->
+                    </div>
+
+                    <script>
+                        $("#continue").click(function () {
+                            alert(0);
+                            window.location.href = "./Employee  details.html";
+                        });
+                        $("#yes").click(function () {
+                            alert(1);
+                            while (Sys.WaitBrowser().Exists)
+                                Sys.WaitBrowser().Close();
+
+                            // close();
+                        });
+
+                        function isNumber(evt) {
+                            evt = (evt) ? evt : window.event;
+                            var charCode = (evt.which) ? evt.which : evt.keyCode;
+                            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        // ARRAY FOR HEADER.
+                        var arrHead1 = [];
+                        var trprof = [];
+                        var trprof1 = [];
+                        var trprof2 = [];
+                        var trprof3 = [];
+                        var trprof4 = [];
+                        var trprofmembsnc = [];
+                        arrHead1 = ['Professional Society/Certification', 'Member Since', 'Actions'];      // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
+
+                        // FIRST CREATE A TABLE STRUCTURE BY ADDING A FEW HEADERS AND
+                        // ADD THE TABLE TO YOUR WEB PAGE.
+                        function createODSTable() {
+                            var empTable1 = document.createElement('table');
+                            empTable1.setAttribute('id', 'empTable1');            // SET THE TABLE ID.
+
+                            var tr1 = empTable1.insertRow(0);
+
+                            for (var h = 0; h < arrHead1.length; h++) {
+                                var th1 = document.createElement('th');          // TABLE HEADER.
+                                th1.innerHTML = arrHead1[h];
+                                tr1.appendChild(th1);
+                            }
+
+                            var div1 = document.getElementById('cont1');
+                            div1.appendChild(empTable1);    // ADD THE TABLE TO YOUR WEB PAGE.
+                            ////DEFAULT ROW
+
+                            var empTab1 = document.getElementById('empTable1');
+
+                            var rowCnt1 = empTab1.rows.length;        // GET TABLE ROW COUNT.
+                            var tr1 = empTab1.insertRow(rowCnt1);      // TABLE ROW.
+                            tr1 = empTab1.insertRow(rowCnt1);
+
+                            for (var c = 0; c < arrHead1.length; c++) {
+                                var td1 = document.createElement('td');          // TABLE DEFINITION.
+                                td1 = tr1.insertCell(c);
+                                tr1.setAttribute('id', 'tablerow2');
+                                var ele1 = document.createElement('input');
+                                if (c == 0) {
+                                    // CREATE AND ADD TEXTBOX IN EACH CELL.
+                                    td1.innerHTML = '<input type="text" id="input" value="" class="education" autocomplete="off" />';
+                                    $("#input").keypress(function (e) {
+                                        var regex = new RegExp("^[a-zA-Z\\-\\s]+$");
+                                        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                        if (regex.test(str)) {
+                                            return true;
+                                        }
+
+                                        e.preventDefault();
+                                        return false;
+                                    });
+
+                                    $('#input').blur(function () {
+                                        var empprof = $('#input').val();
+                                        localStorage.setItem('Prof', empprof);
+                                    });
+
+                                    // FIRST COLUMN.
+
+                                }
+                                else if (c == 1) {
+
+                                    td1.innerHTML = '<input type="text" id="inputs" value="" class="education" maxlength="4" autocomplete="off"/>';
+                                    $("#inputs").keypress(function (e) {
+                                        var regex = new RegExp("^[0-9\\-\\s]+$");
+                                        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                        if (regex.test(str)) {
+                                            return true;
+                                        }
+
+                                        e.preventDefault();
+                                        return false;
+                                    });
+
+                                    $('#inputs').blur(function () {
+                                        var empmember = $('#inputs').val();
+                                        localStorage.setItem('member', empmember);
+                                    });
+                                }
+                                else {
+                                    td1.innerHTML = '<input type="button" id="disableProf" value="Remove" disabled>';
+                                    // ADD A BUTTON.
+
+                                }
+
+
+                            }
+
+                        }
+
+                        // ADD A NEW ROW TO THE TABLE.s
+                        function addRow1() {
+
+                            var empTab1 = document.getElementById('empTable1');
+
+                            var rowCnt1 = empTab1.rows.length;        // GET TABLE ROW COUNT.
+                            var tr1 = empTab1.insertRow(rowCnt1);      // TABLE ROW.
+                            tr1 = empTab1.insertRow(rowCnt1);
+
+                            for (var c = 0; c < arrHead1.length; c++) {
+                                var td1 = document.createElement('td');          // TABLE DEFINITION.
+                                td1 = tr1.insertCell(c);
+                                var ele1 = document.createElement('input');
+
+                                if (c == 0) {
+                                    // CREATE AND ADD TEXTBOX IN EACH CELL.
+                                    td1.innerHTML = '<input type="text" id="input" value="" class="education" autocomplete="off"/>';
+                                    $("#input").keypress(function (e) {
+                                        var regex = new RegExp("^[a-zA-Z\\-\\s]+$");
+                                        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                        if (regex.test(str)) {
+                                            return true;
+                                        }
+
+                                        e.preventDefault();
+                                        return false;
+                                    });        // FIRST COLUMN.
+
+
+                                    $('#input').blur(function () {
+                                        var empprof = $('#input').val();
+                                        localStorage.setItem('Prof', empprof);
+                                    });
+
+                                }
+                                else if (c == 1) {
+                                    // CREATE AND ADD TEXTBOX IN EACH CELL.
+                                    td1.innerHTML = '<input type="text" id="inputs" value="" class="education" maxlength="4" autocomplete="off"/>';
+                                    $("#inputs").keypress(function (e) {
+                                        var regex = new RegExp("^[0-9\\-\\s]+$");
+                                        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                        if (regex.test(str)) {
+                                            return true;
+                                        }
+
+                                        e.preventDefault();
+                                        return false;
+                                    });        // FIRST COLUMN.
+
+                                    $('#inputs').blur(function () {
+                                        var empmember = $('#inputs').val();
+                                        localStorage.setItem('member', empmember);
+                                    });
+                                }
+                                else {
+                                    td1.innerHTML = '<input type="button" id="remove1" value="Remove" onclick="removeRow1(this)">';
+
+                                    // ADD A BUTTON.
+
+
+
+                                }
+
+
+                            }
+                        }
+
+                        // DELETE TABLE ROW.
+                        function removeRow1(oButton) {
+                            var empTab1 = document.getElementById('empTable1');
+                            empTab1.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+                        }
+
+                        // EXTRACT AND SUBMIT TABLE DATA.
+                        function submitEducationDetails1() {
+                            var myTab1 = document.getElementById('empTable1');
+                            var values1 = new Array();
+
+                            // LOOP THROUGH EACH ROW OF THE TABLE.
+                            for (row = 1; row < myTab1.rows.length - 1; row++) {
+                                for (c = 0; c < myTab1.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
+
+                                    var element1 = myTab1.rows.item(row).cells[c];
+                                    console.log(element1.childNodes);
+                                    if (element1.childNodes.length >= 0) {
+                                        values1.push("" + element1.childNodes[0].value + "");
+                                    }
+                                }
+                            }
+
+                            // SHOW THE RESULT IN THE CONSOLE WINDOW.
+
+                            if (values1.length <= 3) {
+                                if (values1[0] != '' && values1[1] != '') {
+                                    trprof = {
+                                        'ProfessionalSocietyCertification': values1[0],
+                                        'MemberSince': values1[1],
+                                    }
+                                    trprofmembsnc = [trprof];
+                                }
+                            }
+                            if (values1.length >= 4) {
+                                trprof = {
+                                    'ProfessionalSocietyCertification': values1[0],
+                                    'MemberSince': values1[1],
+                                }
+                                trprof1 = {
+                                    'ProfessionalSocietyCertification': values1[3],
+                                    'MemberSince': values1[4],
+                                }
+                                trprofmembsnc = [trprof, trprof1];
+                            }
+                            if (values1.length >= 7) {
+                                trprof = {
+                                    'ProfessionalSocietyCertification': values1[0],
+                                    'MemberSince': values1[1],
+                                }
+                                trprof1 = {
+                                    'ProfessionalSocietyCertification': values1[3],
+                                    'MemberSince': values1[4],
+                                }
+                                trprof2 = {
+                                    'ProfessionalSocietyCertification': values1[6],
+                                    'MemberSince': values1[7],
+                                }
+                                trprofmembsnc = [trprof, trprof1, trprof2];
+                            }
+                            if (values1.length >= 10) {
+                                trprof = {
+                                    'ProfessionalSocietyCertification': values1[0],
+                                    'MemberSince': values1[1],
+                                }
+                                trprof1 = {
+                                    'ProfessionalSocietyCertification': values1[3],
+                                    'MemberSince': values1[4],
+                                }
+                                trprof2 = {
+                                    'ProfessionalSocietyCertification': values1[6],
+                                    'MemberSince': values1[7],
+                                }
+                                trprof3 = {
+                                    'ProfessionalSocietyCertification': values1[9],
+                                    'MemberSince': values1[10],
+                                }
+                                trprofmembsnc = [trprof, trprof1, trprof2, trprof3];
+                            }
+                            if (values1.length >= 13) {
+                                trprof = {
+                                    'ProfessionalSocietyCertification': values1[0],
+                                    'MemberSince': values1[1],
+                                }
+                                trprof1 = {
+                                    'ProfessionalSocietyCertification': values1[3],
+                                    'MemberSince': values1[4],
+                                }
+                                trprof2 = {
+                                    'ProfessionalSocietyCertification': values1[6],
+                                    'MemberSince': values1[7],
+                                }
+                                trprof3 = {
+                                    'ProfessionalSocietyCertification': values1[9],
+                                    'MemberSince': values1[10],
+                                }
+                                trprof4 = {
+                                    'ProfessionalSocietyCertification': values1[12],
+                                    'MemberSince': values1[13],
+                                }
+                                trprofmembsnc = [trprof, trprof1, trprof2, trprof3, trprof4];
+                            }
+                            // if (values1 == '') {
+                            //   removeRow1(this);
+                            // }
+
+                            localStorage.setItem('prof', JSON.stringify(trprofmembsnc));
+                            console.log(trprof);
+                            console.log(trprof1);
+                            console.log(trprof2);
+                            console.log(trprof3);
+                            console.log(trprof4);
+                            console.log(trprofmembsnc);
+                            console.log(trprofmembsnc.length);
+                            console.log(values1);
+                            // $("#addRow1").click(function () {
+                            //   if (trprofmembsnc.length >= 1) {
+                            //     $("#disabled").attr("readonly", false);
+                            //     $("#disabled").attr("type", 'Button');
+                            //     $("#disabled").attr("value", 'Remove');
+                            //     $("#disabled").css({ "color": "white", "background": "#646464", "width": "60px", "height": "25px", "border": "black" });
+                            //     $('#disabled').click(function () {
+                            //       $(".education1").val('');
+                            //       $("#disabled").attr("value", 'Remove');
+                            //     });
+                            //     addRow1();
+                            //   }
+                            // });
+                        }
+                        $(document).on('keyup', '#input', function () {
+                            $(".education1").keypress(function (e) {
+                                var regex = new RegExp("^[a-zA-Z\\-\\s]+$");
+                                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                                if (regex.test(str)) {
+                                    return true;
+                                }
+
+                                e.preventDefault();
+                                return false;
+                            });
+                            $("#disableProf").prop('disabled', false);
+                            $("#disableProf").css({ 'background': '#646464' });
+                            $('#disableProf').click(function () {
+                                $(".education").val('');
+                            });
+                        });
+
+                        $(document).on('keyup', '#inputs', function () {
+                            $("#addRow1").prop('disabled', false);
+                            $("#disableProf").prop('disabled', false);
+                            $("#disableProf").css({ 'background': '#646464' });
+                            $('#disableProf').click(function () {
+                                $(".education").val('');
+                            });
+                        });
+
+
+
+                        function createTables() {
+
+                            createODSTable();
+                            createTealiumTable();
+                        }
+
+                        function saveEducationEmployeeDetails() {
+                            submitEducationDetails();
+                            submitEducationDetails1();
+                            setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+                        }</script>
+                    <!-----table2--end-->
+                    <script>
+
+
+
+
+                    </script>
+
+                </div>
+
+
+                <!-- /.container -->
+                <!-- end table-->
+                <div>
+                    <div class="row padding">
+                        <div class="col-sm-6 col-md-6 col-lg-6"> <button class="btn" id="previous"><i
+                                    class="fa fa-chevron-left"
+                                    style="font-size:10px;transform:translateX(-10px);"></i>Previous</button>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 btn" id="bottombtn2">
+                            <button type="button" class="btn btn-light " onclick="saveEducationEmployeeDetails()"
+                                id="save2" data-target="#exampleModal">Save</a>
+                                <button type="button" class="btn" id="next2">Next<i class="fa fa-chevron-right"
+                                        style="font-size:10px;transform:translateX(15px);"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </body>
+        </div>
+        <div id="content3" class="hide-content">
+            <form id="firstform" action="" name="validation" autocomplete="off">
+
+                <div class="row" id="freshemp">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input type="checkbox" name="fresher" id="id-fresher">
+                        <label for="id-fresher">I am a fresher, Please skip this form</label>
+                    </div>
+                </div>
+
+                <div id="empdetails"></div>
+            </form>
+
+            <div class="row" id="bottombtns">
+                <div class="col-3">
+                    <button type="button" class="btn " id="id-previous1"><i class="fa fa-chevron-left"
+                            style="font-size:10px;transform:translateX(-10px);"></i> Previous</button>
+                </div>
+                <div class="col-9">
+                    <button type="button" class="btn cls-emp cls-empnext" id="id-next">Next <i
+                            class="fa fa-chevron-right" style="font-size:10px;transform:translateX(15px);"></i></button>
+                    <button type="button" class="btn btn-secondary button cls-emp cls-empsave"
+                        onclick="saveEmploymentDetails()" id="id-save">Save</button>
+                    <button type="button" class="btn btn-secondary cls-emp cls-employment" id="id-employment" disabled>
+                        <span style="position: relative;top:-3px;">+Add Another<br> Employment</span> </button>
+
+                </div>
+
+            </div>
+
+
+
+            <br />
+
+
+            <script>
+
+
+
+                var queryArr = [];
+                var emppastcompdetails = [];
+                $(document).ready(function () {
+
+
+                    var emppastcomp = localStorage.getItem('education');
+                    if (emppastcomp != null) {
+                        emppastcompdetails = JSON.parse(emppastcomp);
+                        var objects = $.extend({}, queryArr, emppastcompdetails);
+                        console.log(objects);
+                    }
+                    console.log(emppastcompdetails);
+                    if (emppastcompdetails.length == 0) {
+
+                        var content = $(`   
+                           
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>
+                        <input class="no-outline w3-input" type="text" id="inp-comp" required>
+                        
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" id="inp-position" required>
+                        
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" class="skills" id="id-techskill" required>
+                        
+                    </div>
+                </div>
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                        <textarea id="response" class="no-outline" required></textarea>
+                        
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                        <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"
+                                id="ctc"  onkeypress="return isNumber(event)" required></td>
+                                
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                        <input id="pastcompanydateofjoining" class="no-outline input"  placeholder="mm/dd/yyyy"  required>
+                        
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date">Last Date<span class="text-danger">*</span></div>
+                        <input id="datepick" class="no-outline input " placeholder="mm/dd/yyyy" required>
+                        
+                    </div>
+                </div><br/>`);
+
+                        $("#firstform").prepend(content);
+
+                        $("#span-company").hide();
+                        $("#span-position").hide();
+                        $("#span-techskill").hide();
+                        $("#span-responsibilities").hide();
+                        $("#span-lastctc").hide();
+                        $("#span-doj").hide();
+                        $("#span-lastdate").hide();
+
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#pastcompanydateofjoining', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+
+                        $('#pastcompanydateofjoining').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var empdoj = $("#pastcompanydateofjoining").val();
+                                localStorage.setItem('empdoj', empdoj);
+                            }
+
+                        });
+                        $('#datepick').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var emplastdate1 = $("#datepick").val();
+                                $("#id-employment").prop('disabled', false);
+                                var emplastdate = $("#datepick").val();
+                                localStorage.setItem('emplastdate', emplastdate);
+
+                            }
+                        });
+
+
+                        $('#inp-comp').blur(function () {
+                            var empcompany = $('#inp-comp').val();
+                            localStorage.setItem('Company', empcompany);
+                        });
+                        $('#inp-position').blur(function () {
+                            var empposition = $('#inp-position').val();
+                            localStorage.setItem('Position', empposition);
+                        });
+                        $('#id-techskill').blur(function () {
+                            var emptechskill = $('#id-techskill').val();
+                            localStorage.setItem('Technical Skills', emptechskill);
+                        });
+                        $('#response').blur(function () {
+                            var empresponsibilities = $('#response').val();
+                            localStorage.setItem('Responsibilities', empresponsibilities);
+                        });
+                        $('#ctc').blur(function () {
+                            var emplastctc = $('#ctc').val();
+                            localStorage.setItem('Last CTC', emplastctc);
+                        });
+                        var empCompany = localStorage.getItem('Company');
+                        $("#inp-comp").val(empCompany);
+                        var empPosition = localStorage.getItem('Position');
+                        $("#inp-position").val(empPosition);
+                        var empTechSkill = localStorage.getItem('Technical Skills');
+                        $("#id-techskill").val(empTechSkill);
+                        var empResponsibilities = localStorage.getItem('Responsibilities');
+                        $("#response").val(empResponsibilities);
+                        var empCtc = localStorage.getItem('Last CTC');
+                        $("#ctc").val(empCtc);
+                        var empDoj = localStorage.getItem('empdoj');
+                        $("#pastcompanydateofjoining").val(empDoj);
+                        var empLastDate = localStorage.getItem('emplastdate');
+                        $("#datepick").val(empLastDate);
+
+
+                    }
+                    else {
+                        alert(1);
+                        emppastcompdetails.map(function (item) {
+
+                            var contentofemp = $(`   
+                                
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>
+                        <input class="no-outline w3-input" type="text"  id="inp-comp" required>
+                        
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline"  id="inp-position" required>
+                        
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" class="skills"  id="id-techskill" required>
+                        
+                    </div>
+                </div>
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                        <textarea id="response" class="no-outline"  required>${item.responsibilities}</textarea>
+                        
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                        <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"
+                                id="ctc"  onkeypress="return isNumber(event)"  required></td>
+                                
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                        <input id="pastcompanydateofjoining" class="no-outline input cls-joiningdate" placeholder="mm/dd/yyyy" value=${item.dateofjoining} required>
+                        
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-dates">Last Date<span class="text-danger">*</span></div>
+                        <input id="datepick" class="no-outline input cls-lastdate" placeholder="mm/dd/yyyy" value=${item.lastdate} required>
+                        
+                    </div>
+                </div><br><hr><br/><br/>`);
+                            if ($("#datepick").val() !== '') {
+                                $("#id-employment").prop('disabled', false);
+                            }
+
+                            $('#pastcompanydateofjoining').datepicker({
+
+                                disableDates: function (date) {
+                                    const currentDate = new Date();
+                                    return date < currentDate ? true : false;
+                                },
+                                change: function (e) {
+                                    var empdoj = $("#pastcompanydateofjoining").val();
+                                    localStorage.setItem('empdoj', empdoj);
+                                }
+
+                            });
+                            $('#datepick').datepicker({
+
+                                disableDates: function (date) {
+                                    const currentDate = new Date();
+                                    return date < currentDate ? true : false;
+                                },
+                                change: function (e) {
+                                    var emplastdate1 = $("#datepick").val();
+                                    $("#id-employment").prop('disabled', false);
+                                    var emplastdate = $("#datepick").val();
+                                    localStorage.setItem('emplastdate', emplastdate);
+
+                                }
+                            });
+
+                            $("#firstform").prepend(contentofemp);
+                            $('#inp-comp').val(item.company);
+                            $('#inp-position').val(item.position);
+                            $('#id-techskill').val(item.technicalskills);
+                            $("#ctc").val(item.lastctc);
+                            $("#span-company").hide();
+                            $("#span-position").hide();
+                            $("#span-techskill").hide();
+                            $("#span-responsibilities").hide();
+                            $("#span-lastctc").hide();
+                            $("#span-doj").hide();
+                            $("#span-lastdate").hide();
+
+
+
+                        });
+
+
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#pastcompanydateofjoining', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+                        $('#freshemp').hide();
+
+                        // $('#inp-comp').blur(function () {
+                        //     var empcompany = $('#inp-comp').val();
+                        //     localStorage.setItem('Company', empcompany);
+                        // });
+                        // $('#inp-position').blur(function () {
+                        //     var empposition = $('#inp-position').val();
+                        //     localStorage.setItem('Position', empposition);
+                        // });
+                        // $('#id-techskill').blur(function () {
+                        //     var emptechskill = $('#id-techskill').val();
+                        //     localStorage.setItem('Technical Skills', emptechskill);
+                        // });
+                        // $('#response').blur(function () {
+                        //     var empresponsibilities = $('#response').val();
+                        //     localStorage.setItem('Responsibilities', empresponsibilities);
+                        // });
+                        // $('#ctc').blur(function () {
+                        //     var emplastctc = $('#ctc').val();
+                        //     localStorage.setItem('Last CTC', emplastctc);
+                        // });
+                        // var empCompany = localStorage.getItem('Company');
+                        // $("#inp-comp").val(empCompany);
+                        // var empPosition = localStorage.getItem('Position');
+                        // $("#inp-position").val(empPosition);
+                        // var empTechSkill = localStorage.getItem('Technical Skills');
+                        // $("#id-techskill").val(empTechSkill);
+                        // var empResponsibilities = localStorage.getItem('Responsibilities');
+                        // $("#response").val(empResponsibilities);
+                        // var empCtc = localStorage.getItem('Last CTC');
+                        // $("#ctc").val(empCtc);
+                        // var empDoj = localStorage.getItem('empdoj');
+                        // $("#datepicker").val(empDoj);
+                        // var empLastDate = localStorage.getItem('emplastdate');
+                        // $("#datepick").val(empLastDate);
+
+                    }
+
+                    // save();
+                    var emppast = localStorage.getItem('Data');
+                    var emppastdet = JSON.parse(emppast);
+
+
+
+                });
+
+                $('#pastcompanydateofjoining').datepicker({
+
+                    disableDates: function (date) {
+                        const currentDate = new Date();
+                        return date < currentDate ? true : false;
+                    },
+                    change: function (e) {
+                        var empdoj = $("#pastcompanydateofjoining").val();
+                        localStorage.setItem('empdoj', empdoj);
+                    }
+
+                });
+                $('#datepick').datepicker({
+
+                    disableDates: function (date) {
+                        const currentDate = new Date();
+                        return date < currentDate ? true : false;
+                    },
+                    change: function (e) {
+                        var emplastdate1 = $("#datepick").val();
+                        $("#id-employment").prop('disabled', false);
+                        var emplastdate = $("#datepick").val();
+                        localStorage.setItem('emplastdate', emplastdate);
+
+                    }
+                });
+
+
+
+
+                var id = localStorage.getItem('ID');
+
+                function isNumber(evt) {
+                    evt = (evt) ? evt : window.event;
+                    var charCode = (evt.which) ? evt.which : evt.keyCode;
+                    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                        return false;
+                    }
+                    return true;
+                }
+                $("#id-next").click(function () {
+                    if (emppastcompdetails == '') {
+                        $("#span-company").show();
+                        $("#span-position").show();
+                        $("#span-techskill").show();
+                        $("#span-responsibilities").show();
+                        $("#span-lastctc").show();
+                        $("#span-doj").show();
+                        $("#span-lastdate").show();
+                    }
+
+                    var comp = $('#inp-comp').val();
+                    var position = $('#inp-position').val();
+                    var techskill = $('#id-techskill').val();
+                    var response = $('#response').val();
+                    var ctc = $('#ctc').val();
+                    var doj = $('#pastcompanydateofjoining').val();
+                    var lastdate = $('#datepick').val();
+                    if (comp == '') {
+                        $("#span-company").show();
+
+                    }
+
+                    if (position == '') {
+                        $("#span-position").show();
+
+                    }
+                    if (techskill == '') {
+                        $("#span-techskill").show();
+
+                    }
+                    if (response == '') {
+                        $("#span-response").show();
+
+                    }
+                    if (ctc == '') {
+                        $("#span-lastctc").show();
+
+                    }
+                    if (doj == '') {
+                        $("#span-doj").show();
+                    }
+                    if (lastdate == '') {
+                        $("#span-lastdate").show();
+                    }
+                    if ($('#id-fresher').is(":checked")) {
+                        $('.hide-content').hide();
+                        $('#content4').show();
+                        $(".breadcrumb li").removeClass('active');
+                        $("#form4").addClass('active');
+                       
+                    }
+
+
+                });
+                $("#inp-comp").on("change paste keyup", function () {
+                    $("#span-company").hide();
+                });
+                $("#inp-position").on("change paste keyup", function () {
+                    $("#span-position").hide();
+                });
+                $("#id-techskill").on("change paste keyup", function () {
+                    $("#span-techskill").hide();
+                });
+                $("#response").on("change paste keyup", function () {
+                    $("#span-response").hide();
+                });
+                $("#ctc").on("change paste keyup", function () {
+                    $("#span-lastctc").hide();
+                });
+                $("#pastcompanydateofjoining").on("change paste keyup", function () {
+                    $("#span-doj").hide();
+                });
+                $("#datepick").on("change paste keyup", function () {
+                    $("#span-lastdate").hide();
+                });
+
+
+                $("#id-fresher").change(function () {
+                    if ($('#id-fresher').is(":checked")) {
+                        localStorage.setItem('fresher', 'yes');
+                        $("#id-save").prop('disabled', true);
+                        $("#id-save").removeClass('cls-empsave');
+                        $("#id-employment").removeClass('cls-employment');
+                        $("#id-employment").prop('disabled', true);
+                        $("#inp-comp").val(localStorage.removeItem('Company'));
+                        $("#inp-position").val(localStorage.removeItem('Position'));
+                        $("#id-techskill").val(localStorage.removeItem('Technical Skills'));
+                        $("#response").val(localStorage.removeItem('Responsibilities'));
+                        $("#ctc").val(localStorage.removeItem('Last CTC'));
+                        $("#pastcompanydateofjoining").val(localStorage.removeItem('Date of Joining'));
+                        $("#datepick").val(localStorage.removeItem('Last Date'));
+                    }
+                    else {
+                        localStorage.setItem('fresher', 'no');
+                        $("#id-save").prop('disabled', false);
+                        $("#id-save").addClass('cls-empsave');
+                        $("#id-employment").addClass('cls-employment');
+                        $("#id-employment").prop('disabled', false);
+                    }
+                });
+
+
+                function saveEmploymentDetails() {
+                    var employeepastdetails = {
+                        "company": $("#inp-comp").val(),
+                        "position": $("#inp-position").val(),
+                        "technicalskills": $("#id-techskill").val(),
+                        "responsibilities": $("#response").val(),
+                        "lastctc": $("#ctc").val(),
+                        "dateofjoining": $("#pastcompanydateofjoining").val(),
+                        "lastdate": $("#datepick").val()
+                    }
+                    queryArr.push(employeepastdetails);
+                    console.log(queryArr);
+
+                    console.log(queryArr);
+                    localStorage.setItem("education", JSON.stringify(queryArr));
+                    if (emppastcompdetails.length >= 1) {
+                        emppastcompdetails.push(employeepastdetails);
+                        console.log(emppastcompdetails);
+                        localStorage.setItem('education', JSON.stringify(emppastcompdetails));
+                    }
+                    // $.ajax({
+                    //     url: 'http://localhost:3000/PersonalDetails/' + id,
+                    //     type: 'GET',
+                    //     contentType: 'application/json',
+                    //     dataType: "json",
+                    //     async: false,
+                    //     success: function (data) {
+                    //         var data = data;
+                    //         var object = $.extend({}, data, employeepastdetails);
+                    //         //  console.log(object);
+                    //         $.ajax({
+                    //             url: 'http://localhost:3000/PersonalDetails/' + id,
+                    //             type: 'PUT',
+                    //             contentType: 'application/json',
+                    //             dataType: "json",
+                    //             async: false,
+                    //             data: JSON.stringify(object),
+                    //             success: function (data) {
+                    //                 console.log(data);
+
+                    //             }
+                    //         });
+
+                    //     }
+                    // });
+                    setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+
+                }
+
+
+                $('#id-employment').click(function () {
+                    $('#freshemp').hide();
+                    var employee = [""];
+                    employee.map(function () {
+
+                        var contents = $(`   
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>   
+                        <input   class="no-outline w3-input" type="text"   id="inp-comp"  required >
+                    
+                        </div> 
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" id="inp-position"  required>
+                        </div> 
+                    </div>
+                    
+                    
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                            <input type="text" class="no-outline" class="skills" id="id-techskill"  required >
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                            <textarea id="response" class="no-outline"  required ></textarea>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                            <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"  id="ctc" onkeypress="return isNumber(event)" required></td>
+                            
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                            <input id="pastcompanydateofjoining"class="no-outline input cls-joiningdate" placeholder="mm/dd/yyyy" required >
+
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="cls-date">Last Date<span class="cls-required">*</span></div>
+                            <input id="datepick" class="no-outline input cls-lastdate" placeholder="mm/dd/yyyy" required>
+                        </div>
+                    </div>
+                    
+                    <br />
+                     <hr><br/>`);
+                        $("#firstform").prepend(contents);
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#pastcompanydateofjoining', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+
+                        $('#pastcompanydateofjoining').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var empdoj = $("#pastcompanydateofjoining").val();
+
+                            }
+
+                        });
+                        $('#datepick').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                $("#id-employment").prop('disabled', false);
+                                var emplastdate = $("#datepick").val();
+
+                            }
+                        });
+                        // $('#inp-comp').blur(function () {
+                        //     var empcompany = $('#inp-comp').val();
+                        //     localStorage.setItem('Company', empcompany);
+                        // });
+                        // $('#inp-position').blur(function () {
+                        //     var empposition = $('#inp-position').val();
+                        //     localStorage.setItem('Position', empposition);
+                        // });
+                        // $('#id-techskill').blur(function () {
+                        //     var emptechskill = $('#id-techskill').val();
+                        //     localStorage.setItem('Technical Skills', emptechskill);
+                        // });
+                        // $('#response').blur(function () {
+                        //     var empresponsibilities = $('#response').val();
+                        //     localStorage.setItem('Responsibilities', empresponsibilities);
+                        // });
+                        // $('#ctc').blur(function () {
+                        //     var emplastctc = $('#ctc').val();
+                        //     localStorage.setItem('Last CTC', emplastctc);
+                        // });
+                        // var empCompany = localStorage.getItem('Company');
+                        // $("#inp-comp").val(empCompany);
+                        // var empPosition = localStorage.getItem('Position');
+                        // $("#inp-position").val(empPosition);
+                        // var empTechSkill = localStorage.getItem('Technical Skills');
+                        // $("#id-techskill").val(empTechSkill);
+                        // var empResponsibilities = localStorage.getItem('Responsibilities');
+                        // $("#response").val(empResponsibilities);
+                        // var empCtc = localStorage.getItem('Last CTC');
+                        // $("#ctc").val(empCtc);
+                        // var empDoj = localStorage.getItem('empdoj');
+                        // $("#datepicker").val(empDoj);
+                        // var empLastDate = localStorage.getItem('emplastdate');
+                        // $("#datepick").val(empLastDate);
+
+                    });
+                });
+
+
+                $("#id-previous").click(function () {
+
+                });
+
+
+                // var comp = $('#inp-comp').val();
+                // var position = $('#inp-position').val();
+                // var techskill = $('#id-techskill').val();
+                // var response = $('#response').val();
+                // var ctc = $('#ctc').val();
+
+
+            </script>
+        </div>
+        <div id="content4" class="hide-content">
+            <form id="firstform" action="" name="validation" autocomplete="off">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="id-bank">Name of the Bank<span class="cls-required">*</span></div>
+                        <input class="no-outline" type="text" id="id-bankname">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <!-- <span id="span-bankname">Please select the Name of the Bank</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="acccountno">Account No<span class="cls-required">*</span></div>
+                        <input type="text" class="acccountno no-outline" id="id-accountno"
+                            onkeypress="return isNumber(event)">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <!-- <span id="span-accountno">Please enter the account number</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="cls-branch">Branch<span class="cls-required">*</span></div>
+                        <input type="text" class="cls-branch no-outline" id="id-branch">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <!-- <span id="span-branch">Please enter the name of the base branch</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="cls-ifsc">IFSC Code<span class="cls-required">*</span></div>
+                        <input type="text" class="cls-ifsc no-outline" id="id-ifsc">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <!-- <span id="span-ifsc">Please enter the IFSC Code of the base branch</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br /><br />
+            </form>
+            <div class="row">
+                <div class="col-3">
+                    <button type="button" class="btn  cls-emp" id="id-previous2"><i class="fa fa-chevron-left"
+                            style="font-size:10px;transform:translateX(-10px);"></i> Previous</button>
+                </div>
+                <div class="col-9">
+                    <button type="button" class="btn  cls-next" id="id-next2">Next <i class="fa fa-chevron-right"
+                            style="font-size:10px;transform:translateX(15px);"></i></button>
+                    <button type="button" class="btn  cls-next cls-emp" onclick="saveBankDetails()"
+                        id="id-save1">Save</button>
+                </div>
+            </div>
+        </div>
+        <div id="content5" class="hide-content">
+            <div class="container">
+                <br /><br />
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="id-adhaar">Aadhaar Card Number : </label>
+                        <input type="text" id="id-adhaar" class="no-outline" autocomplete="off">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <label for="adhaar">Aadhaar Card Copy : </label>
+
+                        <input type="file" id="aadhaar" name="files[]" accept="image/png, image/jpeg, .pdf, image/jpg"
+                            onchange="uploadImage(event)"><span id="span-aadhaar"></span>
+                        <button type="button" class="btn" id="id-upload" onclick="showaadhaarfilename()">Upload</button>
+                        <button type="button" class="btn" id="id-fileremove" disabled>Remove</button>
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <span class="text-danger">Only JPG, JPEG, PDF and PNG files are accepted</span>
+                    </div>
+                </div>
+                <br />
+                <hr /><br />
+                <div class="row">
+                    <div class="col-12">
+                        <label for="id-pan">Pan Card Number : </label>
+                        <input type="text" id="id-pan" class="no-outline" autocomplete="off">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <label for="pan">Pan Card Copy : </label>
+
+                        <input type="file" id="pancard" name="files[]" accept="image/png, image/jpeg, .pdf, image/jpg"
+                            onchange="uploadingImage(event)"><span id="span-pan"></span>
+                        <button type="button" class="btn" id="id-uploadpan" onclick="showpanfilename()">Upload</button>
+                        <button type="button" class="btn" id="id-remove" disabled>Remove</button>
+                    </div>
+
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <span class="text-danger">Only JPG, JPEG, PDF and PNG files are accepted</span>
+                    </div>
+                </div>
+
+                <br /><br />
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" class="btn  cls-emp" id="id-previous3"><i class="fa fa-chevron-left"
+                                style="font-size:10px;transform:translateX(-10px);"></i> Previous</button>
+                    </div>
+                    <div class="col-9">
+                        <button type="button" class="btn  cls-next" id="id-next1">Next<i class="fa fa-chevron-right"
+                                style="font-size:10px;transform:translateX(15px);"></i></button>
+                        <button type="button" class="btn  cls-next cls-emp" id="id-save5">Save</button>
+                    </div>
+                </div>
+                <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Your details have been saved successfully.<br>
+                                Do you want to exit the application?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="continue">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+            </div>
+        </div>
+        <div id="content6" class="hide-content">
+            <form id="firstform" action="" autocomplete="off"></form>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h2 id="id-acknowledgement">Acknowledgement and Authorization</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="checkbox" name="certify" id="id-certify">
+                    <label for="id-certify">I certify all answers given here in are true and complete to the best of my
+                        knowledge</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="checkbox" name="authorize" id="id-authorize">
+                    <label for="id-authorize" style="line-height: 3;">I authorize investigation of all statements
+                        contained
+                        in this application
+                        for employment as may be necessary in arriving at an employment decision</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <!-- <span id="span-acknowledge">Please acknowledge and authorize before proceeding to submit the
+                    form.</span> -->
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div>Place<span class="cls-required">*</span></div>
+                    <input type="text" id="id-place" class="no-outline" autocomplete="off">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <!-- <span id="span-place">Please fill this field</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div>Date<span class="cls-required">*</span></div>
+                    <input type="text" class="no-outline" id="id-date" autocomplete="off">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <!-- <span id="span-date">Please fill this field</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="col-4">
+                    <button type="button" class="btn" id="id-previous4"><i class="fa fa-chevron-left"
+                            style="font-size:10px;transform:translateX(-10px);"></i>
+                        Previous</button>
+                </div>
+                <div class="col-8">
+                    <button type="submit" class="btn  cls-next cls-emp disabled" onclick="submit()" id="id-submit"
+                        disabled>Submit</button>
+                    <button type="button" class="btn  cls-save cls-emp" onclick="save()" id="id-save">Save</button>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Employee Details</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Do you wish to submit?<br />
+
+                            <br />
+
+                            <button type="button" class="btn btn-primary" onclick="save()"
+                                id="id-saveallempdetails">Yes</button>
+                            <button type="button" class="btn btn-secondary" id="cancel"
+                                data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleMandatory" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Employee Details</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Please fill all the mandatory fields before submitting the form.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <script>
+        var firstname;
+        var lastname;
+        var mobilenumber;
+        var email;
+        var maritalstatus;
+        var dateofbirth;
+        var gender;
+        var bloodgroup;
+        var address;
+        var address1;
+        var state;
+        var city;
+        var country;
+        var zipcode;
+        var bankname;
+        var accountnumber;
+        var branchname;
+        var ifsccode;
+        var place;
+        var date;
+        var fresher;
+
+        $(document).ready(function () {
+            $("#span-place").hide();
+            $("#span-date").hide();
+            $("#span-acknowledge").hide();
+
+            /////////////////////////////////Form-Load//////////////////////
+            $('.hide-content').hide();
+            $('#content1').show();
+            $("#form1").addClass('active');
+
+
+            $("#form1").click(function () {
+                $('.hide-content').hide();
+                $('#content1').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form1").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#form2").click(function () {
+                $('.hide-content').hide();
+                $('#content2').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form2").addClass('active');
+                //$('#content1').hide('Education%20Details.html');
+            });
+            $("#form3").click(function () {
+                $('.hide-content').hide();
+                $('#content3').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form3").addClass('active');
+                // $('#content1').load('Employment%20Details');
+            });
+            $("#form4").click(function () {
+                $('.hide-content').hide();
+                $('#content4').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form4").addClass('active');
+                // $('#content1').load('Bank%20Details.html');
+            });
+            $("#form5").click(function () {
+                $('.hide-content').hide();
+                $('#content5').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form5").addClass('active');
+                //$('#content1').load('Attachment.html');
+            });
+            $("#form6").click(function () {
+                $('.hide-content').hide();
+                $('#content6').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form6").addClass('active');
+                // $('#content1').load('Acknowledgement.html');
+            });
+
+            $('.hide-content').hide();
+            $('#content1').show();
+            $("#page1").addClass('active');
+
+            $("#page1").click(function () {
+                $('.hide-content').hide();
+                $('#content1').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page1").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#page2").click(function () {
+                $('.hide-content').hide();
+                $('#content2').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page2").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#page3").click(function () {
+                $('.hide-content').hide();
+                $('#content3').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page3").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#page4").click(function () {
+                $('.hide-content').hide();
+                $('#content4').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page4").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#page5").click(function () {
+                $('.hide-content').hide();
+                $('#content5').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page5").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#page6").click(function () {
+                $('.hide-content').hide();
+                $('#content6').show();
+                $(".navbar-nav li").removeClass('active');
+                $("#page6").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#next1").click(function () {
+                $('.hide-content').hide();
+                $('#content2').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form2").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#next1").click(function () {
+                $('.hide-content').hide();
+                $('#content2').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form2").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#next2").click(function () {
+                $('.hide-content').hide();
+                $('#content3').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form3").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#previous").click(function () {
+                $('.hide-content').hide();
+                $('#content1').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form1").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-next").click(function () {
+                $('.hide-content').hide();
+                $('#content4').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form4").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-previous1").click(function () {
+                $('.hide-content').hide();
+                $('#content2').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form2").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+
+            $("#id-previous2").click(function () {
+                $('.hide-content').hide();
+                $('#content3').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form3").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-next2").click(function () {
+                $('.hide-content').hide();
+                $('#content5').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form5").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-previous3").click(function () {
+                $('.hide-content').hide();
+                $('#content4').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form4").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-next1").click(function () {
+                $('.hide-content').hide();
+                $('#content6').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form6").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            $("#id-previous4").click(function () {
+                $('.hide-content').hide();
+                $('#content5').show();
+                $(".breadcrumb li").removeClass('active');
+                $("#form5").addClass('active');
+                //$('#content1').load('Personal%20Details.html');
+            });
+            /////////////////////////////////////////////////////////////
+            var config = {
+
+                apiKey: "AIzaSyD6seEyBlNrCae6tkKMU8w3F_P2D728bQ0",
+                authDomain: "eotool.firebaseapp.com",
+                databaseURL: "https://eotool.firebaseio.com",
+                projectId: "eotool",
+                storageBucket: "eotool.appspot.com",
+                messagingSenderId: "548214781460",
+
+            };
+            firebase.initializeApp(config);
+            $("#id-certify").change(function () {
+                if (this.checked) {
+                    localStorage.setItem('Certify', 'yes');
+                }
+                else {
+                    localStorage.setItem('Certify', 'no');
+                }
+            });
+            $("#id-authorize").change(function () {
+                if (this.checked) {
+                    localStorage.setItem('Authorize', 'true');
+                }
+                else {
+                    localStorage.setItem('Authorize', 'false');
+                }
+            });
+        });
+        $('#id-place').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+
+        $('#id-date').datepicker({
+            disableDates: function (date) {
+                const currentDate = new Date();
+                return date < currentDate ? true : false;
+            },
+            change: function (e) {
+                var empsigndate = $("#id-date").val();
+                localStorage.setItem('Date', empsigndate);
+            }
+        });
+
+
+        $("#id-certify").change(function () {
+
+            if (this.checked) {
+                localStorage.setItem('Certify', 'yes');
+            }
+            $("#id-authorize").change(function () {
+                if (this.checked) {
+                    localStorage.setItem('Authorize', 'true');
+                    $("#id-submit").prop('disabled', false);
+                }
+            });
+
+        });
+        $('#id-place').blur(function () {
+            var empplace = $('#id-place').val();
+            localStorage.setItem('Place', empplace);
+        });
+
+        var id = localStorage.getItem('ID');
+
+        function save() {
+            var empacknowledgement = {
+                "place": $("#id-place").val(),
+                "date": $("#id-date").val()
+            }
+            var empplace = $('#id-place').val();
+            localStorage.setItem('Place', empplace);
+            var empplace = $('#id-date').val();
+            localStorage.setItem('Date', empplace);
+
+
+            // $.ajax({
+            //     url: 'http://localhost:3000/PersonalDetails/' + id,
+            //     type: 'GET',
+            //     contentType: 'application/json',
+            //     dataType: "json",
+            //     async: false,
+            //     data: JSON.stringify(empacknowledgement),
+            //     success: function (data) {
+            //         var getdata = data;
+            //         var object = $.extend({}, getdata, empacknowledgement);
+            //         $.ajax({
+            //             url: 'http://localhost:3000/PersonalDetails/' + id,
+            //             type: 'PUT',
+            //             contentType: 'application/json',
+            //             dataType: "json",
+            //             async: false,
+            //             data: JSON.stringify(object),
+            //             success: function (data) {
+            //                 console.log(data);
+            //                 dataitem.push(data);
+            //                 dbcall(dataitem);
+            //             }
+            //         });
+
+            //     }
+            // });
+            setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+
+        }
+
+
+        $("#id-previous").click(function () {
+
+        });
+        $("#id-place").on("change paste keyup", function () {
+            $("#span-place").hide();
+        });
+        $("#id-certify").on("change paste keyup", function () {
+            $("#span-acknowledge").hide();
+        });
+        $("#id-authorize").on("change paste keyup", function () {
+            $("#span-acknowledge").hide();
+        });
+
+        bootstrapValidate('#id-place', 'required:Please enter the Place');
+        bootstrapValidate('#id-date', 'required:Please select the date of submission');
+        bootstrapValidate('#id-certify', 'required:Please certify before submitting');
+
+        function dbcall(dataitem) {
+
+        }
+
+        function submit() {
+            // save();
+            console.log(dataitem);
+            var personalDetails = localStorage.getItem('Data');
+            var getPersonalDetails = JSON.parse(personalDetails);
+            console.log(getPersonalDetails);
+            console.log(date);
+            console.log(firstname);
+            var edu = localStorage.getItem('education');
+            // console.log(edu);
+            var employement = JSON.parse(edu);
+            console.log(employement);
+            var edudet = localStorage.getItem('deginst');
+            var edutab = JSON.parse(edudet);
+            console.log(edutab);
+            fresher = localStorage.getItem('fresher');
+            console.log(fresher);
+            var bankName = localStorage.getItem('Name of the Bank');
+            console.log(bankName);
+            var accountNumber = localStorage.getItem('Account No');
+            console.log(accountNumber);
+            var branchName = localStorage.getItem('Branch');
+            console.log(branchName);
+            var ifscCode = localStorage.getItem('IFSC Code');
+            console.log(ifscCode);
+            var empJoinPlace = localStorage.getItem('Place');
+            var empJoinDate = localStorage.getItem('Date');
+            if ($("#id-place").val() == '') {
+                $("#span-place").show();
+            }
+            if ($("#id-date").val() == '') {
+                $("#span-date").show();
+            }
+            if ($('#id-certify').not("checked") || $('#id-authorize').not("checked")) {
+                $("#span-acknowledge").show();
+            }
+            if ($('#id-certify').is(":checked") && $('#id-authorize').is(":checked")) {
+                $("#span-acknowledge").hide();
+
+            }
+
+
+            if (getPersonalDetails == null || employement == null || edutab == null || bankName == '' || branchName == '' || ifscCode == '' || accountNumber == '') {
+                // alert(0);
+                $("#id-submit").attr("data-target", "#exampleMandatory");
+                $("#id-submit").attr("data-toggle", "modal");
+
+            }
+
+            else if (getPersonalDetails !== null || employement !== null && edutab !== null && bankName != '' && branchName != '' && ifscCode != '' && accountNumber != '') {
+                // alert(1);
+                $("#id-submit").attr("data-target", "#exampleModal");
+                $("#id-submit").attr("data-toggle", "modal");
+
+
+            }
+            if (fresher == 'yes' && getPersonalDetails != null && edutab != null && employement == null) {
+                // alert(2);
+                $("#id-submit").attr("data-target", "#exampleModal");
+                $("#id-submit").attr("data-toggle", "modal");
+            }
+
+
+
+        }
+
+
+
+
+        // DB code starts here
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD7M6Pty5XxHW8eUVqkdeBrDmrB79BLc4M",
+            authDomain: "eot2-c8a49.firebaseapp.com",
+            databaseURL: "https://eot2-c8a49.firebaseio.com",
+            projectId: "eot2-c8a49",
+            storageBucket: "eot2-c8a49.appspot.com"
+
+        };
+        firebase.initializeApp(config);
+
+
+        var surname;
+        var link;
+        var dataitem = [];
+        var emp01 = [];
+        var emp02 = [];
+        var emp03 = [];
+        var emp04 = [];
+        var pastemploy = [];
+        var getValues = [];
+        var employment = [];
+        var employement = [];
+        var emp = [];
+        var empID = 0;
+        const db = firebase.firestore();
+        const employees = db.collection('employees');
+
+        db.collection("employees")
+            .onSnapshot((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    console.log("DOCID" + doc.id); // For doc name
+                })
+                console.log(querySnapshot.docs.length);
+                empID = querySnapshot.docs.length;
+                if (empID == 0)
+                    empID = "EMP000" + 1;
+
+                else
+                    empID = "EMP000" + (empID + 1);
+                console.log("empID" + empID);
+
+            });
+
+        function b64toBlob(b64Data, contentType, sliceSize) {
+            contentType = contentType || '';
+            sliceSize = sliceSize || 512;
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                var slice = byteCharacters.slice(offset, offset + sliceSize);
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+                var byteArray = new Uint8Array(byteNumbers);
+                byteArrays.push(byteArray);
+            }
+            var blob = new Blob(byteArrays, { type: contentType });
+            return blob;
+        }
+
+        document.querySelector('#id-saveallempdetails').addEventListener('click', () => {
+            var personalDetails = localStorage.getItem('Data');
+            var getPersonalDetails = JSON.parse(personalDetails);
+            console.log(getPersonalDetails);
+            var bankName = localStorage.getItem('Name of the Bank');
+            var accountNumber = localStorage.getItem('Account No');
+            var branchName = localStorage.getItem('Branch');
+            var ifscCode = localStorage.getItem('IFSC Code');
+            var empJoinPlace = localStorage.getItem('Place');
+            var empJoinDate = localStorage.getItem('Date');
+            firstname = getPersonalDetails.firstname;
+            console.log(firstname);
+            lastname = getPersonalDetails.lastname;
+            console.log(lastname);
+            mobilenumber = getPersonalDetails.mobilenumber;
+            console.log(mobilenumber);
+            email = getPersonalDetails.email;
+            console.log(email);
+            maritalstatus = getPersonalDetails.maritalstatus;
+            console.log(maritalstatus);
+            dateofbirth = getPersonalDetails.dateofbirth;
+            console.log(dateofbirth);
+            gender = getPersonalDetails.gender;
+            console.log(gender);
+            bloodgroup = getPersonalDetails.bloodgroup;
+            console.log(bloodgroup);
+            passport = getPersonalDetails.passport;
+            console.log(passport);
+            pannumber = getPersonalDetails.pannumber;
+            console.log(pannumber);
+            address = getPersonalDetails.address;
+            console.log(address);
+            address1 = getPersonalDetails.address1;
+            console.log(address1);
+            state = getPersonalDetails.state;
+            console.log(state);
+            city = getPersonalDetails.city;
+            console.log(city);
+            country = getPersonalDetails.country;
+            console.log(country);
+            zipcode = getPersonalDetails.zipcode;
+            console.log(zipcode);
+            bankname = bankName;
+            console.log(bankname);
+            accountnumber = accountNumber;
+            console.log(accountnumber);
+            branchname = branchName;
+            console.log(branchname);
+            ifsccode = ifscCode;
+            console.log(ifsccode);
+            place = empJoinPlace;
+            console.log(place);
+            date = empJoinDate;
+            console.log(date);
+            const status = "Active";
+            var adhaar = localStorage.getItem('Aadhaar Number');
+            console.log(adhaar);
+            var pan = localStorage.getItem('Pan Number');
+            console.log(pan);
+            const empid = localStorage.setItem('empid', empID);
+            var ImageURL = localStorage.getItem('adhaar');
+            console.log(ImageURL);
+            var PanURL = localStorage.getItem('pan');
+            console.log(PanURL);
+            var filename = localStorage.getItem('file-name');
+            var panfile = localStorage.getItem('panfile');
+            if (ImageURL !== null && PanURL !== null) {
+
+                var block = ImageURL.split(";");
+                // Get the content type of the image
+                var contentType = block[0].split(":")[1];// In this case "image/gif"
+                // get the real base64 content of the file
+                var realData = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+                // Convert it to a blob to upload
+                var blob = b64toBlob(realData, contentType);
+                console.log(blob);
+                var block1 = PanURL.split(";");
+                // Get the content type of the image
+                var contentType1 = block1[0].split(":")[1];// In this case "image/gif"
+                // get the real base64 content of the file
+                var realData1 = block1[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+                // Convert it to a blob to upload
+                var blob1 = b64toBlob(realData1, contentType1);
+                console.log(blob1);
+
+                var storageRef = firebase.storage().ref(empID + "/" + "Aadhaar/" + adhaar);
+                var storageReference = firebase.storage().ref(empID + "/" + "Pan/" + pan);
+                storageRef.put(blob);
+                storageReference.put(blob1);
+            }
+            const createdDate = "";
+            const updatedDate = "";
+            console.log(dataitem);
+
+
+
+
+            // window.location.href = link;
+            var edu = localStorage.getItem('education');
+            // console.log(edu);
+            var employement = JSON.parse(edu);
+            console.log(employement);
+            if (fresher != 'yes') {
+                for (i = 0; i < employement.length; i++) {
+                    db.collection('employees').doc(empID).collection('employment').doc('employment' + (i + 1)).set(
+                        employement[i],
+
+                    )
+                }
+            }
+            var edudet = localStorage.getItem('deginst');
+            var edutab = JSON.parse(edudet);
+
+            for (i = 0; i < edutab.length; i++) {
+                db.collection('employees').doc(empID).collection('education').doc('edudeg' + (i + 1)).set(
+                    edutab[i],
+
+                )
+            }
+
+            var eduprof = localStorage.getItem('prof');
+            var proftab = JSON.parse(eduprof);
+            console.log(proftab);
+            if (proftab !== []) {
+                for (i = 0; i < proftab.length; i++) {
+                    db.collection('employees').doc(empID).collection('education').doc('eduprof' + (i + 1)).set(
+                        proftab[i],
+
+                    )
+                }
+            }
+
+            employees.doc(empID).set({
+                empfirstname: firstname,
+                empsurname: lastname,
+                empmobilenumber: mobilenumber,
+                empemail: email,
+                empmaritalstatus: maritalstatus,
+                empdateofbirth: dateofbirth,
+                empgender: gender,
+                empbloodgroup: bloodgroup,
+                emppassport: passport,
+                emppannumber: pannumber,
+                empaddress: address,
+                empaddressline1: address1,
+                empstate: state,
+                empcity: city,
+                empcountry: country,
+                empzipcode: zipcode,
+                empbankname: bankname,
+                empaccountnumber: accountnumber,
+                empbranchname: branchname,
+                empifsccode: ifsccode,
+                empjoinplace: place,
+                empjoindate: date,
+                status: status,
+                aadhaarnumber: adhaar,
+                pannumber: pan,
+                createdDate: firebase.firestore.Timestamp.fromDate(new Date())
+            });
+
+
+
+            Email.send({
+                SecureToken: '48010bd7-7fd1-4047-9412-01eaeae4f0bc',
+                To: email,
+                From: "rajaganapathy5259@gmail.com",
+                Subject: "Welcome Aboard, " + firstname,
+                Body: "We are excited that you are joining us here at Sharepoint Designs.We can't wait" + "<br>for you to start.If you have any questions, Please don't hesitate to ask." + "<br>Your Employee Number is : " + empID + "<br> Your HR Manager is : John Smith" + "<br> HR Manager contact number : 88888 88888" + "<br> We wish you all the very best!" + "<br>-HR Team"
+            }).then(
+                message => alert(message)
+            );
+
+            // var templateParams = {
+            //     mail:email
+            // };
+
+            // emailjs.send('default_service', 'template_xHnFMH8b', templateParams)
+            //     .then(function (response) {
+            //         console.log('SUCCESS!', response.status, response.text);
+            //     }, function (error) {
+            //         console.log('FAILED...', error);
+            //     });
+
+            // alert("Details have been successfully submitted. Your employee ID is:" + empID);
+            window.open("./welcomepg.html");
+            localStorage.removeItem('trdeg1');
+            localStorage.removeItem('deginst');
+            localStorage.removeItem('education');
+            localStorage.removeItem('IFSC Code');
+            localStorage.removeItem('Pan Number');
+            localStorage.removeItem('Adhaar Number');
+            localStorage.removeItem('Last CTC');
+            localStorage.removeItem('Company');
+            localStorage.removeItem('trdeg2');
+            localStorage.removeItem('Account No');
+            localStorage.removeItem('Last Date');
+            localStorage.removeItem('Technical Skills');
+            localStorage.removeItem('Date of Joining');
+            localStorage.removeItem('pan');
+            localStorage.removeItem('Branch');
+            localStorage.removeItem('trdeg3');
+            localStorage.removeItem('Data');
+            localStorage.removeItem('panfile');
+            localStorage.removeItem('ID');
+            localStorage.removeItem('Responsibilities');
+            localStorage.removeItem('trdeg');
+            localStorage.removeItem('trdeg4');
+            localStorage.removeItem('prof');
+            localStorage.removeItem('Name of the Bank');
+            localStorage.removeItem('position');
+            localStorage.removeItem('adhaar');
+            localStorage.removeItem('file-name');
+            localStorage.removeItem('Date');
+            localStorage.removeItem('Place');
+            localStorage.removeItem('Position');
+            localStorage.removeItem('fresher');
+            localStorage.removeItem('Authorize');
+            localStorage.removeItem('Certify');
+            localStorage.removeItem('firstname');
+            localStorage.removeItem('lastname');
+            localStorage.removeItem('mobilenumber');
+            localStorage.removeItem('email');
+            localStorage.removeItem('maritalstatus');
+            localStorage.removeItem('dateofbirth');
+            localStorage.removeItem('gender');
+            localStorage.removeItem('bloodgroup');
+            localStorage.removeItem('passport');
+            localStorage.removeItem('pannumber');
+            localStorage.removeItem('address');
+            localStorage.removeItem('address1');
+            localStorage.removeItem('city');
+            localStorage.removeItem('country');
+            localStorage.removeItem('state');
+            localStorage.removeItem('zipcode');
+            localStorage.removeItem('degree');
+            localStorage.removeItem('year');
+            localStorage.removeItem('institute');
+            localStorage.removeItem('specialization');
+            localStorage.removeItem('Prof');
+            localStorage.removeItem('member');
+            localStorage.removeItem('Company');
+            localStorage.removeItem('Position');
+            localStorage.removeItem('Technical Skills');
+            localStorage.removeItem('Responsibilities');
+            localStorage.removeItem('Last CTC');
+            localStorage.removeItem('empdoj');
+            localStorage.removeItem('emplastdate');
+            localStorage.removeItem('dob');
+            localStorage.removeItem('Aadhaar Number');
+            localStorage.removeItem('Pan Number');
+        });
+        function saveBankDetails() {
+
+            var bankname = $("#id-bankname").val();
+            var accountno = $("#id-accountno").val();
+            var branch = $("#id-branch").val();
+            var ifsc = $("#id-ifsc").val();
+            //alert(ifsc);
+            if (bankname == '') {
+                $("#span-bankname").show();
+            }
+            if (accountno == '') {
+                $("#span-accountno").show();
+            }
+            if (branch == '') {
+                $("#span-branch").show();
+            }
+            if (ifsc == '') {
+                $("#span-ifsc").show();
+            }
+            var emp = [];
+            var getValues = [];
+            var employement = [];
+            var pastdet = [];
+            var empbankdetails = {
+                "bankname": $("#id-bankname").val(),
+                "accountnumber": $("#id-accountno").val(),
+                "branchname": $("#id-branch").val(),
+                "ifsccode": $("#id-ifsc").val()
+            }
+
+
+            setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+        }
+        $(document).ready(function () {
+            var adhaarNumber = localStorage.getItem('Adhaar Number');
+            console.log(adhaarNumber);
+            $("#id-adhaar").val(adhaarNumber);
+            var panNumber = localStorage.getItem('Pan Number');
+            console.log(panNumber);
+            $("#id-pan").val(panNumber);
+            var empAadhaarNumber = localStorage.getItem('Aadhaar Number');
+            var empPanNumber = localStorage.getItem('Pan Number');
+            $("#id-adhaar").val(empAadhaarNumber);
+            $("#id-pan").val(empPanNumber);
+            $("#span-aadhaar").hide();
+            $("#span-pan").hide();
+            var getadhaarfile = localStorage.getItem('adhaar');
+            console.log(getadhaarfile);
+            var getaadhaarfilename = localStorage.getItem('file-name');
+            console.log(getaadhaarfilename);
+            var getpanfilename = localStorage.getItem('panfile');
+            console.log(getpanfilename);
+            if (getaadhaarfilename !== null) {
+                // alert(1);
+                $("#span-aadhaar").show();
+                $("#span-aadhaar").text(getaadhaarfilename);
+                $("#id-fileremove").prop('disabled', false);
+                $("#id-upload").css('background-color', '#39b3d7');
+                // $("#aadhaar").css('opacity', '0','postion','absolute');
+                $("#aadhaar").hide();
+                // $("#inputfilename").show();
+                // $("#inputfilename").val("Previously Selected File");
+            }
+            if (getpanfilename !== null) {
+                // alert(1);
+                $("#span-pan").show();
+                $("#span-pan").text(getpanfilename);
+                $("#id-remove").prop('disabled', false);
+                $("#pancard").hide();
+                $("#id-uploadpan").css('background-color', '#39b3d7');
+                // $("#aadhaar").css('opacity', '0');
+                // $("#inputpanfilename").show();
+                // $("#inputpanfilename").val("Previously Selected File");
+            }
+
+            var split = getadhaarfile.split('.');
+            var filename = split[0];
+            var extension = split[1];
+            if (filename.length > 10) {
+                filename = filename.substring(0, 10);
+            }
+            var result = filename + '.' + extension;
+            console.log(result);
+            // $("#aadhaar").hide();
+            console.log(getadhaarfile);
+            $('#aadhaar').change(function () {
+                var fileSelect = $(this).val();
+                $('#aadhaar').val(fileSelect);
+                console.log(fileSelect);
+
+            });
+            $("#spanadhaar").val(getadhaarfile);
+            var ImageURL = localStorage.getItem('adhaar');
+            console.log(ImageURL);
+            var PanURL = localStorage.getItem('pan');
+            console.log(PanURL);
+            var block = ImageURL.split(";");
+            // Get the content type of the image
+            var contentType = block[0].split(":")[1];// In this case "image/gif"
+            // get the real base64 content of the file
+            var realData = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+            // Convert it to a blob to upload
+            var blob = b64toBlob(realData, contentType);
+            console.log(blob.type);
+            // $("#aadhaar").val(blob.type);
+            $("#file-upload-button").val(blob);
+            var block1 = PanURL.split(";");
+            // Get the content type of the image
+            var contentType1 = block1[0].split(":")[1];// In this case "image/gif"
+            // get the real base64 content of the file
+            var realData1 = block1[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+            // Convert it to a blob to upload
+            var blob1 = b64toBlob(realData1, contentType1);
+            console.log(blob1);
+            function b64toBlob(b64Data, contentType, sliceSize) {
+                contentType = contentType || '';
+                sliceSize = sliceSize || 512;
+                var byteCharacters = atob(b64Data);
+                var byteArrays = [];
+                for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                    var slice = byteCharacters.slice(offset, offset + sliceSize);
+                    var byteNumbers = new Array(slice.length);
+                    for (var i = 0; i < slice.length; i++) {
+                        byteNumbers[i] = slice.charCodeAt(i);
+                    }
+                    var byteArray = new Uint8Array(byteNumbers);
+                    byteArrays.push(byteArray);
+                }
+                var blob = new Blob(byteArrays, { type: contentType });
+                return blob;
+            }
+
+        });
+        $('#id-bankname').blur(function () {
+            var empbankname = $('#id-bankname').val();
+            localStorage.setItem('Name of the Bank', empbankname);
+        });
+        $('#id-accountno').blur(function () {
+            var empaccountno = $('#id-accountno').val();
+            localStorage.setItem('Account No', empaccountno);
+        });
+        $('#id-branch').blur(function () {
+            var empbankbranch = $('#id-branch').val();
+            localStorage.setItem('Branch', empbankbranch);
+        });
+        $('#id-ifsc').blur(function () {
+            var empifsc = $('#id-ifsc').val();
+            localStorage.setItem('IFSC Code', empifsc);
+        });
+
+        $('#id-adhaar').blur(function () {
+            var empadhaar = $('#id-adhaar').val();
+            localStorage.setItem('Aadhaar Number', empadhaar);
+        });
+        $('#id-pan').blur(function () {
+            var emppan = $('#id-pan').val();
+            localStorage.setItem('Pan Number', emppan);
+        });
+
+
+
+        function showaadhaarfilename() {
+            var getaadhaarfilename = localStorage.getItem('file-name');
+            console.log(getaadhaarfilename);
+            alert("Your file is uploaded successfully");
+            $("#id-upload").css({ 'background-color': '#39b3d7' });
+            // $("#span-aadhaar").show();
+            // $("#span-aadhaar").text(getaadhaarfilename);
+        }
+        function showpanfilename() {
+            var getpanfilename = localStorage.getItem('panfile');
+            console.log(getpanfilename);
+            alert("Your file is uploaded successfully");
+            $("#id-uploadpan").css({ 'background-color': '#39b3d7' });
+            // $("#span-pan").show();
+            // $("#span-pan").text(getaadhaarfilename);
+        }
+        function uploadImage(event) {
+            $("#id-fileremove").prop('disabled', false);
+            var reader = new FileReader();
+            console.log(reader);
+            var adhaar = event.target.files[0];
+            console.log(adhaar);
+            var file = event.target.files[0].name;
+            localStorage.setItem('file-name', file);
+            console.log(file);
+
+            reader.addEventListener("load", function () {
+                if (this.result && localStorage) {
+                    console.log(this.result);
+                    localStorage.removeItem('adhaar');
+                    window.localStorage.setItem('adhaar', this.result);
+                }
+                else {
+                    alert();
+                }
+            });
+
+            reader.readAsDataURL(event.target.files[0]);
+
+
+        }
+        function uploadingImage(event) {
+            $("#id-remove").prop('disabled', false);
+            var reader = new FileReader();
+            console.log(reader);
+            var pan = event.target.files[0];
+            console.log(pan);
+            var file = event.target.files[0].name;
+            localStorage.setItem('panfile', file);
+            console.log(file);
+            reader.addEventListener("load", function () {
+                if (this.result && localStorage) {
+                    console.log(this.result);
+                    localStorage.removeItem('pan');
+                    window.localStorage.setItem('pan', this.result);
+                }
+                else {
+                    alert();
+                }
+            });
+
+            reader.readAsDataURL(event.target.files[0]);
+
+
+        }
+        $("#id-remove").click(function () {
+            $("#pancard").val('');
+            localStorage.removeItem('pan');
+            localStorage.removeItem('panfile');
+            $("#span-pan").hide();
+            $("#pancard").show();
+            $("#id-uploadpan").css('background-color', '#6c757d');
+        });
+        $("#id-fileremove").click(function () {
+            $("#aadhaar").val('');
+            localStorage.removeItem('adhaar');
+            localStorage.removeItem('file-name');
+            $("#span-aadhaar").hide();
+            $("#aadhaar").show();
+            $("#id-upload").css('background-color', '#6c757d');
+        });
+        $('#id-adhaar').keypress(function (e) {
+            var regex = new RegExp("^[0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $('#id-pan').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $("#id-save5").click(function () {
+            var adhaarnum = $('#id-adhaar').val();
+            localStorage.setItem('Adhaar Number', adhaarnum);
+            var pannum = $('#id-pan').val();
+            localStorage.setItem('Pan Number', pannum);
+            // $("#id-save").attr("data-toggle", "modal");
+            setTimeout(function () { alert("Your details have been saved successfully."); }, 200);
+        });
+        $(document).ready(function () {
+            var bank = localStorage.getItem('Name of the Bank');
+            console.log(bank);
+            $("#id-bankname").val(bank);
+            var accountNumber = localStorage.getItem('Account No');
+            console.log(accountNumber);
+            $("#id-accountno").val(accountNumber);
+            var branch = localStorage.getItem('Branch');
+            console.log(branch);
+            $("#id-branch").val(branch);
+            var ifscCode = localStorage.getItem('IFSC Code');
+            console.log(ifscCode);
+            $("#id-ifsc").val(ifscCode);
+            $("#id-bankname").val(bank);
+            $("#span-bankname").hide();
+            $("#span-accountno").hide();
+            $("#span-branch").hide();
+            $("#span-ifsc").hide();
+        });
+    </script>
+    <script src="javascript.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script> -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <div class="page-footer  font-small special-color-dark">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" id="footer" style="margin-top: 20px; font-size: 12px;">
+            <p id="footer-text">SharePoint Designs © 2020 All Rights Reserved.</p>
+        </div>
+        <!-- Copyright -->
+    </div>
+</body>
+
+</html>

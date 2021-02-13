@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Form-2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+    integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      font-family: 'PT Sans';
+      font-size: 13px;
+    }
+    /* #headerimg {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+    } */
+    /* #gray {
+      background-color: #eeeeee;
+    } */
+    /* #form2 {
+      transform: translateY(4%);
+      margin-bottom: 40px;
+    } */
+    .carousel-inner>.carousel-item>a>img,
+    .carousel-inner>.carousel-item>img,
+    .img-fluid {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      background-color: white;
+      /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19); */
+    }
+    #brdcrmb{
+     margin-top:50px; 
+    }
+    
+
+    /* #bg {
+      background-color: white;
+      padding: 30px 30px -30px 30px;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    } */
+
+    .breadcrumb {
+            padding: 0px;
+            background: #9b999a;
+            list-style: none;
+            overflow: hidden;
+            margin-top: 1px;  
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .breadcrumb>li+li:before {
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            float: left;
+        }
+
+        .breadcrumb li.active a {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li.completed a {
+            background: #9b999a;
+            ;
+
+        }
+
+        .breadcrumb li.active a:after {
+            border-left: 30px solid #21d0e2;
+        }
+
+        .breadcrumb li.completed a:after {
+            border-left: 30px solid #9b999a;
+            ;
+        }
+
+        .breadcrumb li a {
+            color: white;
+            background: #9b999a;
+            text-decoration: none;
+            padding: 10px 64px 10px 45px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        .breadcrumb li a:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid #9b999a;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            left: 100%;
+            z-index: 2;
+        }
+
+        .breadcrumb li a:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid white;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: 1px;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .breadcrumb li:first-child a {
+            padding-left: 15px;
+        }
+
+        .breadcrumb li a:hover {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li a:hover:after {
+            border-left-color: #21d0e2 !important;
+        }
+        .btn {
+      width: 150px;
+    }
+
+    .btn-info {
+      background-color: #9e9e9e;
+    }
+
+    .btn-breadcrumb .btn:not(:last-child):after {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 10px solid #9e9e9e;
+      position: absolute;
+      top: 50%;
+      margin-top: -17px;
+      left: 100%;
+      z-index: 3;
+    }
+
+    .btn-breadcrumb .btn:not(:last-child):before {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 10px solid rgb(173, 173, 173);
+      position: absolute;
+      top: 50%;
+      margin-top: -17px;
+      margin-left: 1px;
+      left: 100%;
+      z-index: 3;
+    }
+
+    /** The Spacing **/
+
+    .btn-breadcrumb .btn {
+      padding: 6px 12px 6px 24px;
+    }
+
+    .btn-breadcrumb .btn:first-child {
+      padding: 6px 6px 6px 10px;
+    }
+
+    .btn-breadcrumb .btn:last-child {
+      padding: 6px 18px 6px 24px;
+    }
+
+    .btn-breadcrumb .btn:hover {
+      padding: 6px 12px 6px 24px;
+      box-shadow: 5px 5px 5px #C2C2C2;
+      font-size: 15px;
+    }
+
+    .btn-breadcrumb .btn.btn-info:not(:last-child):after {
+      border-left: 10px solid #9e9e9e;
+    }
+
+    .btn-breadcrumb .btn.btn-info:not(:last-child):before {
+      border-left: 10px solid #9e9e9e;
+    }
+
+    .btn-breadcrumb .btn.btn-info:hover:not(:last-child):after {
+      border-left: 10px solid #39b3d7 !important;
+    }
+
+    .btn-breadcrumb .btn.btn-info:hover:not(:last-child):before {
+      border-left: 10px solid #39b3d7 !important;
+    }
+
+
+    table {
+      width: 100%;
+      font-size: 13px;
+      font-family: 'PT-Sans';
+
+    }
+
+    table,
+    th,
+    td {
+      border: solid 1px #DDD;
+      border-collapse: collapse;
+      padding: 2px 3px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #646464;
+      color: white;
+      height: 40px;
+    }
+
+    td {
+      height: 40px;
+    }
+
+    #input {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 30px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #505962;
+    }
+
+    #disable {
+
+      width: 60px;
+    height: 25px;
+    /* background-color: #646464; */
+    color: white;
+    border: black;
+
+    }
+
+    #disabled {
+
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 30px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #505962;
+
+    }
+
+
+
+    #addRow {
+      width: 60px;
+      height: 25px;
+      background-color: #646464;
+      color: white;
+
+    }
+
+
+
+    .padding {
+      padding-top: 30px;
+    }
+
+    h5 {
+      color: #39b3d7 !important;
+    }
+
+    .text-danger {
+      font-size: 15px;
+    }
+
+
+    #bottombtn {
+      transform: translateX(60%);
+    }
+
+
+
+    #education {
+      background-color: #39b3d7;
+    }
+
+    .valid-feedback {
+      color: green;
+    }
+
+    .invalid-feedback {
+      color: #C4202F;
+    }
+
+
+
+    #add1:hover {
+      width: 80px;
+      box-shadow: 3px 3px 3px #C2C2C2;
+    }
+
+    #delete {
+      background-color: #646464;
+      color: white;
+      width: 80px;
+      float: right;
+    }
+
+
+    #next {
+      background-color: #50bcdd !important;
+      width: 100px;
+      height: 30px;
+      background-color: #39b3d7;
+      outline: 2px #39b3d7;
+      color: white;
+    }
+
+    #next:hover {
+      box-shadow: 3px 3px 3px #C2C2C2;
+    }
+
+    #save {
+      background-color: #646464;
+      color: white;
+      transform: translateX(-10%);
+      box-shadow: 3px 3px 3px #C2C2C2;
+      width: 100px;
+      height: 30px;
+      background-color: #646464;
+      color: white;
+      margin-left: 105px;
+    }
+
+    #save:hover {
+      box-shadow: 3px 3px 3px #C2C2C2;
+    }
+
+    #welcomepg {
+      color: white;
+      text-decoration: none;
+    }
+
+    #previous {
+      width: 100px;
+      height: 30px;
+      background-color: #646464;
+      color: white;
+      transform: translateY(10%);
+      outline: #505962;
+    }
+
+    #previous:hover {
+      box-shadow: 3px 3px 3px #C2C2C2;
+      outline: #505962;
+    }
+
+    #bottombtn {
+      float: right;
+      transform: translateX(-120%);
+    }
+
+
+    .btn-secondary {
+      background-color: #646464;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #646464;
+      color: white;
+    }
+
+    #remove1 {
+      width: 15px;
+      height: 15px;
+
+    }
+
+    #addRow {
+      width: 60px;
+      height: 25px;
+      background-color: #646464;
+      color: white;
+      margin-left: 10px;
+    }
+
+    #addRow1 {
+      width: 60px;
+      height: 25px;
+      background-color: #646464;
+      color: white;
+      margin-left: 10px;
+    }
+
+    #remove {
+      width: 60px;
+      height: 25px;
+      background-color: #646464;
+      color: white;
+      border:black;
+    }
+
+    #remove1 {
+      width: 60px;
+      height: 25px;
+      background-color: #646464;
+      color: white;
+      border:black;
+    }
+
+    @media(max-width:576px) {
+
+
+
+      .btn {
+        width: 60px;
+        font-size: 13px;
+      }
+
+      #graybutton {
+        width: 90px;
+        height: 40px;
+      }
+
+      #previous {
+        background-color: #646464;
+        color: white;
+        width: 60px;
+        transform: translateY(120%);
+        padding: 5px 5px 5px 5px;
+      }
+
+      #previous:hover {
+        background-color: #646464;
+        color: white;
+        font-size: 14px;
+        width: 60px;
+        padding: 5px 5px 5px 5px;
+      }
+
+      #bottombtn {
+        float: right;
+        transform: translateX(-10%);
+      }
+
+
+
+      .inputText {
+        margin-top: 10px;
+      }
+
+      .padding {
+        padding-top: 50px;
+      }
+
+
+
+      #next {
+        background-color: #50bcdd !important;
+        width: 60px;
+      }
+
+      #next:hover {
+        background-color: #50bcdd !important;
+        width: 60px;
+        font-size: 14px;
+        padding: 5px 5px 5px 5px;
+      }
+
+      #save {
+        background-color: #646464;
+        color: white;
+        width: 60px;
+        padding: 5px 5px 5px 5px;
+      }
+
+
+      #save:hover {
+        background-color: #646464;
+        color: white;
+        width: 60px;
+        font-size: 14px;
+        padding: 5px 5px 5px 5px;
+      }
+
+      #mobileview_bc {
+        display: block !important;
+        background-color: #9E9E9E !important;
+        position: relative;
+        top: 50px;
+      }
+
+      #breadcrumb {
+        display: none;
+      }
+
+      table {
+        width: 80% !important;
+        font-size: 13px;
+        font-family: 'PT Sans';
+
+      }
+
+      table,
+      th,
+      td {
+        border: solid 1px #DDD;
+        border-collapse: collapse;
+        padding: 2px 3px;
+
+      }
+
+      th {
+        background-color: #646464;
+        color: white;
+        height: 40px;
+      }
+
+      td {
+        height: 40px;
+      }
+
+      #input {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #505962;
+      }
+
+
+
+      #remove1 {
+        width: 15px;
+        height: 15px;
+
+      }
+
+      #addRow {
+        width: 60px;
+        height: 25px;
+        background-color: #646464;
+        color: white;
+
+      }
+    }
+
+
+
+    @media(min-width:768px) {
+      #breadcrumb {
+        margin: 0 auto;
+        position: relative;
+        top: 28px;
+        width: 100%;
+        max-width: 100%;
+        height: 35px;
+        background-color: #9e9e9e !important;
+      }
+    }
+
+    @media(max-width:992px) {
+      .btn {
+        width: 150px;
+        font-size: 13px;
+      }
+    }
+
+    #exampleModal .modal-dialog {
+      -webkit-transform: translate(0, -50%);
+      -o-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      top: 50%;
+      margin: 0 auto;
+    }
+    
+  </style>
+  
+
+</head>
+
+<body id="gray">
+  <div class="modal  fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your details have been saved successfully.
+        Do you want to exit the application?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="yes">Yes</button>
+        <button type="button" class="btn btn-secondary"  id="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div  id=form2>
+    <!----header image----->
+    <div>
+      <img src="header (1).png" class="img-fluid" alt="Responsive image" id="headerimg">
+    </div>
+
+    <div class="container" id="bg">
+      <!----Breadcrumb----->
+       <div class="row justify-content-center" id="brdcrmb">
+
+            <ul class="breadcrumb">
+                <li><a href="form-1.html">Personal Details</a></li>
+                <li class="active"><a href="form2.html">Education</a></li>
+                <li><a href="Employee  details.html">Past Employment</a></li>
+                <li><a href="Bank Details.html">Bank Details</a></li>
+                <li ><a href="attachment.html">Attachment</a></li>
+                <li ><a href="Acknowledgement.html">Acknowledgement</a></li>
+            </ul>
+
+        </div>
+      <nav aria-label="breadcrumb padding  " id="mobileview_bc" style="display: none;">
+        <ol class="breadcrumb ">
+          <li class="breadcrumb-item"><a href="Personal Details.html">Personal Details</a>
+          </li>
+          <li class="breadcrumb-item"><a href="EducationDetails.html">Education</a>
+          </li>
+          <li class="breadcrumb-item"><a href="Employee  details.html ">Employement</a>
+          </li>
+          <li class="breadcrumb-item"><a href="Bank Details.html">Bank Details</a>
+          </li>
+          <li class="breadcrumb-item"><a href="attachment.html">Attachments</a>
+          </li>
+          <li class="breadcrumb-item"><a href="Acknowledgement.html">Acknowledgement</a>
+          </li>
+        </ol>
+      </nav>
+      <div>
+        <p class="padding">
+          <h5>Educational Qualifications<span class="text-danger">*</span></h5>
+        </p>
+        <div class="row">
+          <div class="table-responsive" style="margin-top: 40px;">
+            <!-----------table1--------->
+
+
+
+            <!--THE CONTAINER WHERE WE'll ADD THE DYNAMIC TABLE-->
+
+            <div class="container" id="cont"> </div>
+            <p>
+              <input type="button" id="addRow" value="Add+" />
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-----table1-end-------->
+
+      <script>
+        var empdeg = [];
+        var empedu = [];
+        var empedu1 = [];
+        var empedu2 = [];
+        var empedu3 = [];
+        var empedu4 = [];
+        var trinst = [];
+        var th = [];
+        var tr1 = [];
+        var tr2 = [];
+        var tr3 = [];
+        var tr4 = [];
+        var tr5 = [];
+        var getvalues = [];
+        var getallempdegvalues = [];
+        var TableData = [];
+        $(".education").keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+        $(document).ready(function () {
+          createTables();
+          // localStorage.getItem('deginst');
+          // localStorage.getItem('prof');
+          var alledudet = localStorage.getItem('trdeg');
+          var alledudetails = JSON.parse(alledudet);
+          console.log(alledudetails);
+          //  $('#input').val(alledudetails.Degree);
+          localStorage.getItem('tr');
+          var tredu = localStorage.getItem('tr');
+          var tredudet = JSON.parse(tredu);
+          console.log(tredudet);
+          var getempeducationdeg = localStorage.getItem('deginst');
+          getvalues = JSON.parse(getempeducationdeg);
+           console.log(getvalues.length);
+          var getempeducationprof = localStorage.getItem('prof');
+          getvaluesprof = JSON.parse(getempeducationprof);
+          console.log(getvaluesprof.length);
+
+          var empTab = document.getElementById('empTable');
+
+          $(getvalues).each(function (i, item) {
+            console.log(item, i);
+            // $("#empTable").append(getvalues[i]);
+            
+            var markup = `<tr><td><input  name='Degree' id='input' value='${item.Degree}'></td><td><input type='input' name='Year' id='input' value='${item.Year}'></td><td><input type='input' name='Institute' id='input' value='${item.Institute}'></td><td><input type='input' name='Specialization' id='input' value='${item.Specialization}'></td><td></td></tr>`;
+            // $("#empTable").removeRow(this);
+            $("#empTable").append(markup);
+            });
+          $(getvaluesprof).each(function (i, item) {
+            console.log(item, i);
+            var markup1 = `<tr><td><input  name='Prof' id='input' value='${item.ProfessionalSocietyCertification}'></td><td><input type='input' name='Member' id='input' value='${item.MemberSince}'></td><td></td></tr>`;
+            $("#empTable1").append(markup1);
+          });
+          var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+          var tr = empTab.insertRow(rowCnt); 
+          tr.setAttribute('id','tablerow1');     // TABLE ROW.
+          tr = empTab.insertRow(rowCnt);
+          
+
+          
+
+          // empTab.insertRow(customtd);
+          // var td = document.createElement('td');
+          // td.appendChild(customtd);
+          // $(getvalues).each(function(i ,item){
+          //   console.log(item,i);
+
+          // for (var c = 0; c < arrHead.length; c++) {
+          //   var td = document.createElement('td');          // TABLE DEFINITION.
+          //   td = tr.insertCell(c);
+
+          //   if (c <= 3) {
+          //     // CREATE AND ADD TEXTBOX IN EACH CELL.
+          //     var ele = document.createElement('input');
+          //     ele.setAttribute('type', 'text');
+          //     ele.setAttribute('value', `${item.Year}`);
+          //     ele.setAttribute('id', 'input');
+
+          //     td.appendChild(ele);         // FIRST COLUMN.
+
+          //   }
+          // }
+          // });
+
+          // $(".education").val(JSON.stringify(getvalues));
+          // $(".education").val(JSON.stringify(getvalues));
+          // $(getvalues).each(function(i,v){
+          // td=document.createElement('td');
+          // if(td.length!=0){
+          //   td.textContent(getvalues);
+          // }
+          //   // getallempdegvalues[i]=getvalues[i];
+          //   // tdata=document.createElement('td');
+          //   // // tdata.push(getallempdegvalues[i]);
+          // });
+          console.log(JSON.stringify(getallempdegvalues));
+
+          // if('td'=="Degree"){
+
+          //   $("#input").val(getvalues[0].Degree);
+          // }
+
+          //   for(i=0;i<getvalues.length;i++){
+          //     empdeg.push(getvalues[i]);
+
+          //   }
+          //   empedu=empdeg[0];
+          //   empedu1=empdeg[1];
+          //   empedu2=empdeg[2];
+          //   empedu3=empdeg[3];
+          //   empedu4=empdeg[4];
+          //   console.log(empedu);
+          //   console.log(empedu1);
+          //   console.log(empedu2);
+          //   console.log(empedu3);
+          //   console.log(empedu4);
+          //   if(empdeg.length=1){
+          //     tr1={
+          //       "Degree":empedu.Degree,
+          //       "Year":empedu.Year,
+          //       "Institute":empedu.Institute,
+          //       "Specialization":empedu.Specialization
+          //     }
+          //     console.log(tr1);
+          //     localStorage.setItem('tr',JSON.stringify(tr1));
+          //   }
+          //   if(empdeg.length=2){
+          //     tr1={
+          //       "Degree":empedu.Degree,
+          //       "Year":empedu.Year,
+          //       "Institute":empedu.Institute,
+          //       "Specialization":empedu.Specialization
+          //     }
+          //     tr2={
+          //       "Degree":empedu1.Degree,
+          //       "Year":empedu1.Year,
+          //       "Institute":empedu1.Institute,
+          //       "Specialization":empedu1.Specialization
+          //     }
+          //     console.log(tr2);
+          //   }
+          //   // console.log(empdeg[1]);
+        });
+        // ARRAY FOR HEADER.
+        var trdeg = [];
+        var trdeg1 = [];
+        var trdeg2 = [];
+        var trdeg3 = [];
+        var trdeg4 = [];
+        var trdeginstspl = [];
+        var arrHead = [];
+        arrHead = ['Degree', 'Year', 'Institute', 'Specialization', 'Actions'];      // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
+        
+        // FIRST CREATE A TABLE STRUCTURE BY ADDING A FEW HEADERS AND
+        // ADD THE TABLE TO YOUR WEB PAGE.
+        function createTealiumTable() {
+          var empTable = document.createElement('table');
+          empTable.setAttribute('id', 'empTable');            // SET THE TABLE ID.
+          
+          tr = empTable.insertRow(0);
+         
+          for (var h = 0; h < arrHead.length; h++) {
+            var th = document.createElement('th');          // TABLE HEADER.
+            th.innerHTML = arrHead[h];
+            tr.appendChild(th);
+          }
+
+          var div = document.getElementById('cont');
+          div.appendChild(empTable);    // ADD THE TABLE TO YOUR WEB PAGE.
+          ////DEFAULT ROW
+
+          var empTab = document.getElementById('empTable');
+
+          var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+          var tr = empTab.insertRow(rowCnt); 
+               // TABLE ROW.
+          tr = empTab.insertRow(rowCnt);
+          tr.setAttribute('id','tablerow1');
+          var c;
+          for (c = 0; c < arrHead.length; c++) {
+            var td = document.createElement('td');          // TABLE DEFINITION.
+            td = tr.insertCell(c);
+            if (c <= 3) {
+              // CREATE AND ADD TEXTBOX IN EACH CELL.
+              var ele = document.createElement('input');
+              ele.setAttribute('type', 'text');
+              ele.setAttribute('value', '');
+              ele.setAttribute('id', 'input');
+              ele.setAttribute('class', 'education');
+              td.appendChild(ele);         // FIRST COLUMN.
+
+            }
+
+            else {
+              td.innerHTML = '<input type="button" id="disable" value="Remove" disabled>';
+              // var ele2 = document.createElement('input');
+              // ele2.setAttribute('type', 'text');
+              // ele2.setAttribute('value', '');
+              // ele2.setAttribute('id', 'disable');
+              // ele2.setAttribute('class', 'education');
+              // ele2.setAttribute('readonly', true);
+              // td.appendChild(ele2);
+              // ADD A BUTTON.
+
+            }
+            
+
+          }
+          
+
+        }
+        
+
+        // ADD A NEW ROW TO THE TABLE.s
+        function addRow() {
+
+          var empTab = document.getElementById('empTable');
+
+          var rowCnt = empTab.rows.length;        // GET TABLE ROW COUNT.
+          var tr = empTab.insertRow(rowCnt);      // TABLE ROW.
+          tr = empTab.insertRow(rowCnt);
+
+          for (var c = 0; c < arrHead.length; c++) {
+            var td = document.createElement('td');          // TABLE DEFINITION.
+            td = tr.insertCell(c);
+
+            if (c <= 3) {
+              // CREATE AND ADD TEXTBOX IN EACH CELL.
+              var ele = document.createElement('input');
+              ele.setAttribute('type', 'text');
+              ele.setAttribute('value', '');
+              ele.setAttribute('id', 'input');
+
+              td.appendChild(ele);         // FIRST COLUMN.
+
+            }
+            else {
+
+              td.innerHTML = '<input type="button" id="remove" value="Remove" onclick="removeRow(this)">';
+
+              // var ele3 = document.createElement('button');
+              // ele3.setAttribute('id', 'remove');
+              // ele3.setAttribute('onclick', 'removeRow(this)');
+              // ele3.innerHTML='Remove';
+
+              // // ADD A BUTTON.
+              // // var img = document.createElement('img');
+
+              // // // SET INPUT ATTRIBUTE.
+
+              // // img.src = "close.png";
+              // // img.setAttribute('id', 'remove')
+
+              // // // ADD THE BUTTON's 'onclick' EVENT.
+              // // img.setAttribute('onclick', 'removeRow(this)');
+
+              // td.appendChild(ele3);
+
+
+            }
+
+
+          }
+        }
+
+        // DELETE TABLE ROW.
+        function removeRow(oButton) {
+          var empTab = document.getElementById('empTable');
+          empTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+        }
+
+        // EXTRACT AND SUBMIT TABLE DATA.
+        function submit() {
+          var myTab = document.getElementById('empTable');
+          var values = new Array();
+          // LOOP THROUGH EACH ROW OF THE TABLE.
+          for (row = 1; row < myTab.rows.length - 1; row++) {
+            for (c = 0; c < myTab.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
+
+              var element = myTab.rows.item(row).cells[c];
+              console.log(element);
+              if (element.childNodes[0].getAttribute('type') == 'text') {
+                values.push("" + element.childNodes[0].value + "");
+              }
+            }
+          }
+
+          // SHOW THE RESULT IN THE CONSOLE WINDOW.
+          if (values.length >= 3) {
+            trdeg = {
+              'Degree': values[0],
+              'Year': values[1],
+              'Institute': values[2],
+              'Specialization': values[3]
+            }
+            trdeginstspl = [trdeg];
+          }
+          if (values.length >= 7) {
+            trdeg = {
+              'Degree': values[0],
+              'Year': values[1],
+              'Institute': values[2],
+              'Specialization': values[3]
+            }
+            trdeg1 = {
+              'Degree': values[4],
+              'Year': values[5],
+              'Institute': values[6],
+              'Specialization': values[7]
+            }
+            trdeginstspl = [trdeg, trdeg1];
+          }
+          if (values.length >= 11) {
+            trdeg = {
+              'Degree': values[0],
+              'Year': values[1],
+              'Institute': values[2],
+              'Specialization': values[3]
+            }
+            trdeg1 = {
+              'Degree': values[4],
+              'Year': values[5],
+              'Institute': values[6],
+              'Specialization': values[7]
+            }
+            trdeg2 = {
+              'Degree': values[8],
+              'Year': values[9],
+              'Institute': values[10],
+              'Specialization': values[11]
+            }
+            trdeginstspl = [trdeg, trdeg1, trdeg2];
+          }
+          if (values.length >= 15) {
+            trdeg = {
+              'Degree': values[0],
+              'Year': values[1],
+              'Institute': values[2],
+              'Specialization': values[3]
+            }
+            trdeg1 = {
+              'Degree': values[4],
+              'Year': values[5],
+              'Institute': values[6],
+              'Specialization': values[7]
+            }
+            trdeg2 = {
+              'Degree': values[8],
+              'Year': values[9],
+              'Institute': values[10],
+              'Specialization': values[11]
+            }
+            trdeg3 = {
+              'Degree': values[12],
+              'Year': values[13],
+              'Institute': values[14],
+              'Specialization': values[15]
+            }
+            trdeginstspl = [trdeg, trdeg1, trdeg2, trdeg3];
+          }
+          if (values.length >= 19) {
+            trdeg = {
+              'Degree': values[0],
+              'Year': values[1],
+              'Institute': values[2],
+              'Specialization': values[3]
+            }
+            trdeg1 = {
+              'Degree': values[4],
+              'Year': values[5],
+              'Institute': values[6],
+              'Specialization': values[7]
+            }
+            trdeg2 = {
+              'Degree': values[8],
+              'Year': values[9],
+              'Institute': values[10],
+              'Specialization': values[11]
+            }
+            trdeg3 = {
+              'Degree': values[12],
+              'Year': values[13],
+              'Institute': values[14],
+              'Specialization': values[15]
+            }
+            trdeg4 = {
+              'Degree': values[16],
+              'Year': values[17],
+              'Institute': values[18],
+              'Specialization': values[19]
+            }
+            trdeginstspl = [trdeg, trdeg1, trdeg2, trdeg3, trdeg4];
+          }
+          localStorage.setItem('deginst', JSON.stringify(trdeginstspl));
+          localStorage.setItem('trdeg', JSON.stringify(trdeg));
+          localStorage.setItem('trdeg1', JSON.stringify(trdeg1));
+          localStorage.setItem('trdeg2', JSON.stringify(trdeg2));
+          localStorage.setItem('trdeg3', JSON.stringify(trdeg3));
+          localStorage.setItem('trdeg4', JSON.stringify(trdeg4));
+          console.log(trdeg);
+          console.log(trdeg1);
+          console.log(trdeg2);
+          console.log(trdeg3);
+          console.log(trdeg4);
+          console.log(trdeginstspl);
+          console.log(values.length);
+          console.log(values[4]);
+          $("#addRow").click(function () {
+            if (trdeginstspl.length >= 1) {
+              // td.innerHTML='<input type="button" id="remove" value="Remove" onclick="removeRow(this)">';
+              // $("#disable").attr("readonly", false);
+              // $("#disable").attr("type", 'Button');
+              // $("#disable").attr("value", 'Remove');
+              // $("#disable").css({ "color": "white", "background": "#646464", "width": "60px", "height": "25px", "border": "white" });
+              // $('#disable').click(function () {
+              //   $(".education").val('');
+              //   $("#disable").attr("value", 'Remove');
+              // });
+              addRow();
+            }
+          });
+        }
+        $(document).on('keyup', '#input', function() {
+          $(".education").keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+          $("#disable").prop('disabled',false);
+          $("#disable").css({'background':'#646464'});
+          $('#disable').click(function () {
+         $(".education").val('');
+        });
+        });
+        
+       
+        
+        // $("#input").change(function () {
+        //   alert(5);
+        //   $("#disable").prop('disabled',false);
+        // });
+      </script>
+
+
+
+      <p class="padding" onload="creatTable1()">
+        <h5>Professional Memberships/Certifications</h5>
+      </p>
+      <div class="row">
+        <div class="table-responsive" style="margin-top: 40px;">
+          <!-----table2-->
+
+          <!--THE CONTAINER WHERE WE'll ADD THE DYNAMIC TABLE-->
+
+          <div class="container" id="cont1"> </div>
+          <p>
+            <input type="button" id="addRow1" value="Add+" />
+          </p>
+
+          <!-----table1-end-------->
+        </div>
+        <script>
+           $("#continue").click(function(){
+        alert(0);
+            window.location.href="./Employee  details.html";
+          });    
+      $("#yes").click(function(){
+        alert(1);
+        while (Sys.WaitBrowser().Exists)
+        Sys.WaitBrowser().Close();
+
+        // close();
+      });
+
+          function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+              return false;
+            }
+            return true;
+          }
+          // ARRAY FOR HEADER.
+          var arrHead1 = [];
+          var trprof = [];
+          var trprof1 = [];
+          var trprof2 = [];
+          var trprof3 = [];
+          var trprof4 = [];
+          var trprofmembsnc = [];
+          arrHead1 = ['Professional Society/Certification', 'Member Since', 'Actions'];      // SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
+
+          // FIRST CREATE A TABLE STRUCTURE BY ADDING A FEW HEADERS AND
+          // ADD THE TABLE TO YOUR WEB PAGE.
+          function createODSTable() {
+            var empTable1 = document.createElement('table');
+            empTable1.setAttribute('id', 'empTable1');            // SET THE TABLE ID.
+
+            var tr1 = empTable1.insertRow(0);
+
+            for (var h = 0; h < arrHead1.length; h++) {
+              var th1 = document.createElement('th');          // TABLE HEADER.
+              th1.innerHTML = arrHead1[h];
+              tr1.appendChild(th1);
+            }
+
+            var div1 = document.getElementById('cont1');
+            div1.appendChild(empTable1);    // ADD THE TABLE TO YOUR WEB PAGE.
+            ////DEFAULT ROW
+
+            var empTab1 = document.getElementById('empTable1');
+
+            var rowCnt1 = empTab1.rows.length;        // GET TABLE ROW COUNT.
+            var tr1 = empTab1.insertRow(rowCnt1);      // TABLE ROW.
+            tr1 = empTab1.insertRow(rowCnt1);
+
+            for (var c = 0; c < arrHead1.length; c++) {
+              var td1 = document.createElement('td');          // TABLE DEFINITION.
+              td1 = tr1.insertCell(c);
+
+              if (c <= 1) {
+                // CREATE AND ADD TEXTBOX IN EACH CELL.
+                var ele1 = document.createElement('input');
+                ele1.setAttribute('type', 'text');
+                ele1.setAttribute('value', '');
+                ele1.setAttribute('id', 'input');
+                ele1.setAttribute('class', 'education');
+
+                td1.appendChild(ele1);         // FIRST COLUMN.
+
+              }
+              else {
+                //  td.innerHTML = '<input type="button" id="disabled" value="Remove" disabled>';
+                // ADD A BUTTON.
+                var ele3 = document.createElement('input');
+                ele3.setAttribute('type', 'text');
+                ele3.setAttribute('value', '');
+                ele3.setAttribute('id', 'disabled');
+                ele3.setAttribute('class', 'education1');
+                ele3.setAttribute('readonly', true);
+                td1.appendChild(ele3);;
+              }
+
+
+            }
+
+          }
+
+          // ADD A NEW ROW TO THE TABLE.s
+          function addRow1() {
+
+            var empTab1 = document.getElementById('empTable1');
+
+            var rowCnt1 = empTab1.rows.length;        // GET TABLE ROW COUNT.
+            var tr1 = empTab1.insertRow(rowCnt1);      // TABLE ROW.
+            tr1 = empTab1.insertRow(rowCnt1);
+
+            for (var c = 0; c < arrHead1.length; c++) {
+              var td1 = document.createElement('td');          // TABLE DEFINITION.
+              td1 = tr1.insertCell(c);
+
+              if (c <= 1) {
+                // CREATE AND ADD TEXTBOX IN EACH CELL.
+                var ele1 = document.createElement('input');
+                ele1.setAttribute('type', 'text');
+                ele1.setAttribute('value', '');
+                ele1.setAttribute('id', 'input');
+                td1.appendChild(ele1);         // FIRST COLUMN.
+
+              }
+              else {
+                td1.innerHTML = '<input type="button" id="remove1" value="Remove" onclick="removeRow1(this)">';
+
+                // ADD A BUTTON.
+                // var img1 = document.createElement('img');
+
+                // // SET INPUT ATTRIBUTE.
+
+                // img1.src = "close.png";
+                // img1.setAttribute('id', 'remove1')
+
+                // // ADD THE BUTTON's 'onclick' EVENT.
+                // img1.setAttribute('onclick', 'removeRow1(this)');
+
+
+              }
+
+
+            }
+          }
+
+          // DELETE TABLE ROW.
+          function removeRow1(oButton) {
+            var empTab1 = document.getElementById('empTable1');
+            empTab1.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
+          }
+
+          // EXTRACT AND SUBMIT TABLE DATA.
+          function submit1() {
+            var myTab1 = document.getElementById('empTable1');
+            var values1 = new Array();
+
+            // LOOP THROUGH EACH ROW OF THE TABLE.
+            for (row = 1; row < myTab1.rows.length - 1; row++) {
+              for (c = 0; c < myTab1.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
+
+                var element1 = myTab1.rows.item(row).cells[c];
+                if (element1.childNodes[0].getAttribute('type') == 'text') {
+                  values1.push("" + element1.childNodes[0].value + "");
+                }
+              }
+            }
+
+            // SHOW THE RESULT IN THE CONSOLE WINDOW.
+            
+            if (values1.length <= 3) {
+              trprof = {
+                'ProfessionalSocietyCertification': values1[0],
+                'MemberSince': values1[1],
+              }
+              trprofmembsnc = [trprof];
+            }
+            if (values1.length >= 4) {
+              trprof = {
+                'ProfessionalSocietyCertification': values1[0],
+                'MemberSince': values1[1],
+              }
+              trprof1 = {
+                'ProfessionalSocietyCertification': values1[2],
+                'MemberSince': values1[3],
+              }
+              trprofmembsnc = [trprof, trprof1];
+            }
+            if (values1.length >= 6) {
+              trprof = {
+                'ProfessionalSocietyCertification': values1[0],
+                'MemberSince': values1[1],
+              }
+              trprof1 = {
+                'ProfessionalSocietyCertification': values1[2],
+                'MemberSince': values1[3],
+              }
+              trprof2 = {
+                'ProfessionalSocietyCertification': values1[4],
+                'MemberSince': values1[5],
+              }
+              trprofmembsnc = [trprof, trprof1, trprof2];
+            }
+            if (values1.length >= 8) {
+              trprof = {
+                'ProfessionalSocietyCertification': values1[0],
+                'MemberSince': values1[1],
+              }
+              trprof1 = {
+                'ProfessionalSocietyCertification': values1[2],
+                'MemberSince': values1[3],
+              }
+              trprof2 = {
+                'ProfessionalSocietyCertification': values1[4],
+                'MemberSince': values1[5],
+              }
+              trprof3 = {
+                'ProfessionalSocietyCertification': values1[6],
+                'MemberSince': values1[7],
+              }
+              trprofmembsnc = [trprof, trprof1, trprof2, trprof3];
+            }
+            if (values1.length >= 10) {
+              trprof = {
+                'ProfessionalSocietyCertification': values1[0],
+                'MemberSince': values1[1],
+              }
+              trprof1 = {
+                'ProfessionalSocietyCertification': values1[2],
+                'MemberSince': values1[3],
+              }
+              trprof2 = {
+                'ProfessionalSocietyCertification': values1[4],
+                'MemberSince': values1[5],
+              }
+              trprof3 = {
+                'ProfessionalSocietyCertification': values1[6],
+                'MemberSince': values1[7],
+              }
+              trprof4 = {
+                'ProfessionalSocietyCertification': values1[8],
+                'MemberSince': values1[9],
+              }
+              trprofmembsnc = [trprof, trprof1, trprof2, trprof3, trprof4];
+            }
+            // if (values1 == '') {
+            //   removeRow1(this);
+            // }
+            localStorage.setItem('prof', JSON.stringify(trprofmembsnc));
+            console.log(trprof);
+            console.log(trprof1);
+            console.log(trprof2);
+            console.log(trprof3);
+            console.log(trprof4);
+            console.log(trprofmembsnc);
+            console.log(trprofmembsnc.length);
+            console.log(values1.length);
+            $("#addRow1").click(function () {
+              if (trprofmembsnc.length >= 1) {
+                $("#disabled").attr("readonly", false);
+                $("#disabled").attr("type", 'Button');
+                $("#disabled").attr("value", 'Remove');
+                $("#disabled").css({ "color": "white", "background": "#646464", "width": "60px", "height": "25px", "border": "black" });
+                $('#disabled').click(function () {
+                  $(".education1").val('');
+                  $("#disabled").attr("value", 'Remove');
+                });
+                addRow1();
+              }
+            });
+          }
+          $(document).on('keyup', '#input', function() {
+          $(".education1").keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        });
+          });
+        </script>
+        <!-----table2--end-->
+        <script>
+          function createTables() {
+
+            createODSTable();
+            createTealiumTable();
+          }
+          function save() {
+            submit();
+            submit1();
+            setTimeout(function() { alert("Your details have been saved successfully."); }, 200);
+          }
+
+        </script>
+
+      </div>
+
+
+      <!-- /.container -->
+      <!-- end table-->
+      <div >
+        <div class="row padding">
+          <div class="col-sm-6 col-md-6 col-lg-6"> <a href="form-1.html" class="btn btn-info" id="previous">Previous</a>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 btn" id="bottombtn" style="padding-bottom: 40px;">
+            <button type="button" class="btn btn-light " onclick="save()" id="save" data-target="#exampleModal">Save</a>
+              <button type="button" class="btn" id="next">Next
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <footer class="page-footer ">
+      <div class="footer-copyright text-center py-3">
+      </div>
+    </footer>
+
+    <script>
+      $("#next").click(function () {
+        if (trdeginstspl.length !== 0) {
+          window.location.href = "./Employee  details.html"
+        }
+      });
+
+
+     
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+      integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+      crossorigin="anonymous"></script>
+      
+</body>
+
+</html>

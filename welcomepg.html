@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+        integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        html,body {
+ 	height: 100%;
+ 	width: 100%;
+ 	font-family: 'PT Sans';
+ }
+ h3 {
+ 	color: #50bcdd !important;
+ 	transform: translateY(100%);
+ 	transform: translateX(10%);
+ }
+ #greetings {
+ 	color: #646464;
+ 	transform: translateX(10%);
+ 	font-size: 18px;
+ }
+ #text-info {
+ 	color: #50bcdd !important;
+ }
+ #empno {
+ 	color: #646464;
+ 	font-size: 19px;
+ 	font-weight: bold;
+ 	transform: translateX(10%);
+ }
+ #hrteam {
+ 	margin-top: -20px;
+ 	transform: translateX(10%);
+ 	color: #646464;
+ 	font-size: 18px;
+ 	position: relative;
+ 	top: 40px;
+ }
+ @media(max-width:576px) {
+ 	#empno {
+ 		color: #646464;
+ 		font-size: 17px;
+ 		font-weight: bold;
+ 		transform: translateX(5%);
+ 	}
+ 	h3 {
+ 		color: #50bcdd !important;
+ 		transform: translateY(100%);
+ 		transform: translateX(5%);
+ 		letter-spacing: 1px;
+ 	}
+ 	#greetings {
+ 		color: #646464;
+ 		transform: translateX(5%);
+ 		font-size: 15px;
+ 	}
+ 	#hrteam {
+ 		margin-top: -20px;
+ 		transform: translateX(5%);
+ 		color: #646464;
+ 		font-size: 15px;
+ 		position: relative;
+ 		top: 40px;
+ 	}
+ }
+ @media(min-width:768px)  {}
+	#logo 
+	{
+		width: 100%;
+	}
+
+	html,body {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+    </style>
+</head>
+
+<body>
+	<div>
+		<img src="logo.png" alt="logo" id="logo">
+	</div>
+    <div class="container">
+        <!----header image----->
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p>
+                    <h3>Welcome Aboard,<span style="font-weight:bold">Employee Name</span></h3>
+                </p>
+                <p id="greetings" style="margin-top:40px">We are excited that you are joining us here at Company Name.We
+                    cant wait
+                    <br>for you to start.if you have any questions, Please don't hesitate to ask.</p>
+            </div>
+            <div class="col-12">
+                <p id="empno" style="margin-top:40px">Your Employee Number is : <span id="text-info"></span>
+                </p>
+                <p id="empno">Your HR Manager is : <span id="text-info">John Smith</span>
+                </p>
+                <p id="empno">HR Manager contact number : <span id="text-info"> 88888 88888</span>
+                </p>
+                <p id="hrteam">We wish you all the very best!</p>
+                <p id="hrteam">-HR Team</p>
+                </p>
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		var empid=localStorage.getItem('empid');
+		console.log(empid);
+		$("#text-info").append(empid);
+	});
+	
+	
+	</script>
+</body>
+
+</html>

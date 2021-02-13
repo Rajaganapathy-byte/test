@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Form-3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+        integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-family: 'PT Sans';
+            font-size: 13px;
+            color: #646464;
+        }
+
+        hr {
+            background-color: #39b3d7;
+        }
+        .no-outline {
+            color: black;
+            font-size: 15px;
+        }
+
+        .breadcrumb {
+            padding: 0px;
+            background: #9b999a;
+            list-style: none;
+            overflow: hidden;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .breadcrumb>li+li:before {
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            float: left;
+        }
+
+        .breadcrumb li.active a {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li.completed a {
+            background: #9b999a;
+            ;
+
+        }
+
+        .breadcrumb li.active a:after {
+            border-left: 30px solid #21d0e2;
+        }
+
+        .breadcrumb li.completed a:after {
+            border-left: 30px solid #9b999a;
+            
+        }
+
+        .breadcrumb li a {
+            color: white;
+            background: #9b999a;
+            text-decoration: none;
+            padding: 10px 64px 10px 45px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        .breadcrumb li a:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid #9b999a;
+            ;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            left: 100%;
+            z-index: 2;
+        }
+
+        .breadcrumb li a:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            /* Go big on the size, and let overflow hide */
+            border-bottom: 50px solid transparent;
+            border-left: 30px solid white;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: 1px;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .breadcrumb li:first-child a {
+            padding-left: 15px;
+        }
+
+        .breadcrumb li a:hover {
+            background: #21d0e2;
+        }
+
+        .breadcrumb li a:hover:after {
+            border-left-color: #21d0e2 !important;
+        }
+        #brdcrmb{
+            margin-top:50px;
+        }
+        @media(min-width: 320px) and (max-width: 1024px) {
+            #brdcrmb {
+                display: none;
+            }
+
+            #id-hidetab {
+                display: block !important;
+            }
+        }
+
+        @media(max-width:576px) {
+            .btn {
+                width: 60px;
+                font-size: 13px;
+            }
+
+            #mobileview_bc {
+                display: block !important;
+                background-color: #9E9E9E !important;
+                position: relative;
+                top: 0px;
+            }
+
+            #breadcrumb {
+                display: none;
+            }
+        }
+
+        @media(min-width:768px) {
+            #breadcrumb {
+                margin: 0 auto;
+                position: relative;
+                top: 28px;
+                width: 100%;
+                max-width: 100%;
+                height: 35px;
+                background-color: #9e9e9e !important;
+            }
+        }
+
+        @media(max-width:992px) {
+            .btn {
+                width: 150px;
+                font-size: 13px;
+            }
+        }
+
+        body {
+            font-family: 'PT Sans';
+        }
+
+        input[type=text] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        #response {
+            width: 100%;
+            height: 150px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        #id-techskill {
+            width: 100%;
+        }
+
+        .skills {
+            width: 100%;
+            color:black;
+        }
+        #responsible{
+            color:black;
+        }
+
+        .input {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 30px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: black;
+            font-size: 15px;
+            border-bottom: 1px solid #c2c2c2;
+        }
+
+        #comp {
+            width: 100%;
+            color:black;
+        }
+        #position{
+            color:black;
+        }
+
+        #inp-comp {
+            width: 100%;
+        }
+
+        #inp-position {
+            width: 100%;
+        }
+
+        textarea {
+            overflow-y: scroll;
+            height: 100px;
+        }
+
+        .cls-emp {
+            float: right;
+        }
+
+        .valid-feedback {
+            color: green;
+            font-size: 12px;
+        }
+
+        .invalid-feedback {
+            color: #C4202F;
+            font-size: 12px;
+        }
+
+        #ctc {
+            width: 100%;
+            position: relative;
+            top: -14px;
+        }
+
+        .prefix {
+            position: relative;
+            top: 7px;
+        }
+
+        #id-next {
+            transform: translateX(-30%);
+            width: 90px;
+            height: 45px;
+            background-color: #39b3d7;
+            color: white;
+        }
+
+        #id-save {
+            transform: translateX(-40%);
+            width: 90px;
+            height: 45px;
+            background-color: #646464;
+            color: white;
+        }
+
+        #id-employment {
+            transform: translateX(-50%);
+            width: 95px;
+            height: 45px;
+            background-color: #646464;
+            color: white;
+            padding: 5px 5px 5px 5px;
+        }
+
+        #id-previous {
+            width: 90px;
+            height: 45px;
+            background-color: #646464;
+            color: white;
+            padding: 5px 5px 5px 5px;
+            position: relative;
+            top: 40px;
+            left: 5px;
+            text-decoration: none;
+        }
+
+        .cls-empsave:hover {
+            background: #21d0e2;
+        }
+
+        .cls-empnext:hover {
+            background: #21d0e2;
+        }
+
+        .cls-employment:hover {
+            background: #21d0e2;
+        }
+
+        .no-outline:focus {
+            outline: none;
+        }
+
+        .currencyinput input {
+            border: 0;
+        }
+
+        .cls-lastCtc {
+            padding-left: 10px;
+        }
+        last-ctc{
+            color:black;
+        }
+        #id-doj{
+            color:black;
+        }
+        .cls-date{
+            color:black;
+        }
+        #firstform {
+            padding-top: 40px;
+        }
+
+
+        .gj-textbox-md {
+            border: none;
+            border-bottom: 1px solid #c2c2c2;
+            display: block;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 16px;
+            padding: 4px 0;
+            margin: 0;
+            width: 100%;
+            background: 0 0;
+            text-align: left;
+            color: rgba(0, 0, 0, .87);
+        }
+
+        .gj-datepicker-md [role=right-icon] {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 24px;
+            color: #6e6e6e;
+        }
+    </style>
+</head>
+
+<body id="gray">
+    <div  id=form2>
+        <!----header image----->
+        <div>
+            <img src="header (1).png" class="img-fluid" alt="Responsive image" id="headerimg">
+        </div>
+
+        <div class="container" id="bg">
+            <!----Breadcrumb----->
+            <div class="row justify-content-center" id="brdcrmb">
+
+                <ul class="breadcrumb">
+                    <li ><a href="form-1.html">Personal Details</a></li>
+                    <li ><a href="form2.html">Education</a></li>
+                    <li class="active"><a href="Employee  details.html">Past Employment</a></li>
+                    <li><a href="Bank Details.html">Bank Details</a></li>
+                    <li ><a href="attachment.html">Attachment</a></li>
+                    <li ><a href="Acknowledgement.html">Acknowledgement</a></li>
+                </ul>
+      
+            </div>
+            <div class="row" id="id-hidetab" style="display:none">
+            <div class="col-12">
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-light">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="form-1.html">Personal Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="form2.html">Education</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Employee  details.html">Past Employment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Bank Details.html">Bank Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="attachment.html">Attachments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Acknowledgement.html">Acknowledgement</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+            <!-- /form -->
+            <form id="firstform" action="" name="validation" autocomplete="off">
+                <br />
+                <div class="row" id="freshemp">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input type="checkbox" name="fresher" id="id-fresher">
+                        <label for="id-fresher">I am a fresher, Please skip this form</label>
+                    </div>
+                </div>
+
+                <div id="empdetails"></div>
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-secondary" id="id-previous"><i class="fa fa-angle-left"
+                                aria-hidden="true"></i> Previous</button>
+                    </div>
+                    <div class="col-9">
+                        <button type="button" class="cls-emp cls-empnext" id="id-next">Next</button>
+                        <button type="button" class="btn btn-secondary button cls-emp cls-empsave" onclick="save()"
+                            id="id-save">Save</button>
+                        <button type="button" class="btn btn-secondary cls-emp cls-employment" id="id-employment">+
+                            Add Another<br> Employment</button>
+
+                    </div>
+
+                </div>
+
+
+
+                <br />
+            
+
+            <script>
+
+                var queryArr=[];
+                var emppastcompdetails = [];
+                $(document).ready(function () {
+                    $("#span-company").hide();
+                    $("#span-position").hide();
+                    $("#span-techskill").hide();
+                    $("#span-response").hide();
+                    $("#span-lastctc").hide();
+                    $("#span-doj").hide();
+                    $("#span-lastdate").hide();
+                    var emppastcomp = localStorage.getItem('education');
+                    if (emppastcomp != null) {
+                        emppastcompdetails = JSON.parse(emppastcomp);
+                        var objects = $.extend({}, queryArr, emppastcompdetails);
+                        console.log(objects);
+                    }
+                    console.log(emppastcompdetails);
+                    if (emppastcompdetails.length == 0) {
+                        var content = $(`   
+                           
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>
+                        <input class="no-outline w3-input" type="text" id="inp-comp" required>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" id="inp-position" required>
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" class="skills" id="id-techskill" required>
+                    </div>
+                </div>
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                        <textarea id="response" class="no-outline" required></textarea>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                        <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"
+                                id="ctc" maxlength="8" onkeypress="return isNumber(event)" required></td>
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                        <input id="datepicker" class="no-outline input " required>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date">Last Date<span class="text-danger">*</span></div>
+                        <input id="datepick" class="no-outline input " required>
+                    </div>
+                </div><br/><br/>`);
+
+                        $("#firstform").prepend(content);
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#datepicker', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+                        $('#datepicker').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var empdoj = $("#datepicker").val();
+
+                            }
+
+                        });
+                        $('#datepick').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var emplastdate = $("#datepick").val();
+
+                            }
+                        });
+
+                    }
+                    else {
+
+                        emppastcompdetails.map(function (item) {
+
+                            var contentofemp = $(`   
+                                
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>
+                        <input class="no-outline w3-input" type="text"  id="inp-comp" required>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline"  id="inp-position" required>
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" class="skills"  id="id-techskill" required>
+                    </div>
+                </div>
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                        <textarea id="response" class="no-outline"  required>${item.responsibilities}</textarea>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                        <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"
+                                id="ctc" maxlength="8" onkeypress="return isNumber(event)"  required></td>
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                        <input id="datepicker" class="no-outline input cls-joiningdate" value=${item.dateofjoining} required>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="cls-dates">Last Date<span class="text-danger">*</span></div>
+                        <input id="datepick" class="no-outline input cls-lastdate" value=${item.lastdate} required>
+                    </div>
+                </div><br><hr><br/><br/>`);
+                            
+                            $("#firstform").prepend(contentofemp);
+                            $('#inp-comp').val(item.company);
+                            $('#inp-position').val(item.position);
+                            $('#id-techskill').val(item.technicalskills);
+                            $("#ctc").val(item.lastctc);
+                            
+
+                        });
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#datepicker', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+                        $('#freshemp').hide();
+                        $('#datepicker').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var empdoj1 = $("#datepicker").val();
+
+                            }
+
+                        });
+                        $('#datepick').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var emplastdate1 = $("#datepick").val();
+
+                            }
+                        });
+                    }
+
+                    // save();
+                    var emppast = localStorage.getItem('Data');
+                    var emppastdet = JSON.parse(emppast);
+
+
+
+                });
+
+
+                var id = localStorage.getItem('ID');
+
+                function isNumber(evt) {
+                    evt = (evt) ? evt : window.event;
+                    var charCode = (evt.which) ? evt.which : evt.keyCode;
+                    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                        return false;
+                    }
+                    return true;
+                }
+                $("#id-next").click(function () {
+                    var comp = $('#inp-comp').val();
+                    var position = $('#inp-position').val();
+                    var techskill = $('#id-techskill').val();
+                    var response = $('#response').val();
+                    var ctc = $('#ctc').val();
+                    var doj = $('#datepicker').val();
+                    var lastdate = $('#datepick').val();
+                    if (comp == '') {
+                        $("#span-company").show();
+
+                    }
+
+                    if (position == '') {
+                        $("#span-position").show();
+
+                    }
+                    if (techskill == '') {
+                        $("#span-techskill").show();
+
+                    }
+                    if (response == '') {
+                        $("#span-response").show();
+
+                    }
+                    if (ctc == '') {
+                        $("#span-lastctc").show();
+
+                    }
+                    if (doj == '') {
+                        $("#span-doj").show();
+                    }
+                    if (lastdate == '') {
+                        $("#span-lastdate").show();
+                    }
+                    if ($('#id-fresher').is(":checked")) {
+                        window.location.href = "./Bank Details.html";
+                    }
+                    if ($('#inp-comp').val() !== '' && $('#inp-position').val() !== '' && $('#id-techskill').val() !== '' && $('#response').val() !== '' && $('#ctc').val() !== '' && $('#datepicker').val() !== '' && $('#datepick').val() !== '') {
+                        {
+                            window.location.href = "./Bank Details.html";
+                        }
+                    }
+                   
+                });
+                $("#inp-comp").on("change paste keyup", function () {
+                    $("#span-company").hide();
+                });
+                $("#inp-position").on("change paste keyup", function () {
+                    $("#span-position").hide();
+                });
+                $("#id-techskill").on("change paste keyup", function () {
+                    $("#span-techskill").hide();
+                });
+                $("#response").on("change paste keyup", function () {
+                    $("#span-response").hide();
+                });
+                $("#ctc").on("change paste keyup", function () {
+                    $("#span-lastctc").hide();
+                });
+                $("#datepicker").on("change paste keyup", function () {
+                    $("#span-doj").hide();
+                });
+                $("#datepick").on("change paste keyup", function () {
+                    $("#span-lastdate").hide();
+                });
+
+
+                $("#id-fresher").change(function () {
+                    if ($('#id-fresher').is(":checked")) {
+                        $("#id-save").prop('disabled', true);
+                        $("#id-save").removeClass('cls-empsave');
+                        $("#id-employment").removeClass('cls-employment');
+                        $("#id-employment").prop('disabled', true);
+                        $("#inp-comp").val(localStorage.removeItem('Company'));
+                        $("#inp-position").val(localStorage.removeItem('Position'));
+                        $("#id-techskill").val(localStorage.removeItem('Technical Skills'));
+                        $("#response").val(localStorage.removeItem('Responsibilities'));
+                        $("#ctc").val(localStorage.removeItem('Last CTC'));
+                        $("#datepicker").val(localStorage.removeItem('Date of Joining'));
+                        $("#datepick").val(localStorage.removeItem('Last Date'));
+                    }
+                    else {
+                        $("#id-save").prop('disabled', false);
+                        $("#id-save").addClass('cls-empsave');
+                        $("#id-employment").addClass('cls-employment');
+                        $("#id-employment").prop('disabled', false);
+                    }
+                });
+                $('#inp-comp').blur(function () {
+                    var empcompany = $('#inp-comp').val();
+                    localStorage.setItem('Company', empcompany);
+                });
+                $('#inp-position').blur(function () {
+                    var empposition = $('#inp-position').val();
+                    localStorage.setItem('Position', empposition);
+                });
+                $('#id-techskill').blur(function () {
+                    var emptechskill = $('#id-techskill').val();
+                    localStorage.setItem('Technical Skills', emptechskill);
+                });
+                $('#response').blur(function () {
+                    var empresponsibilities = $('#response').val();
+                    localStorage.setItem('Responsibilities', empresponsibilities);
+                });
+                $('#ctc').blur(function () {
+                    var emplastctc = $('#ctc').val();
+                    localStorage.setItem('Last CTC', emplastctc);
+                });
+                
+                function save() {
+                    var employeepastdetails = {
+                        "company": $("#inp-comp").val(),
+                        "position": $("#inp-position").val(),
+                        "technicalskills": $("#id-techskill").val(),
+                        "responsibilities": $("#response").val(),
+                        "lastctc": $("#ctc").val(),
+                        "dateofjoining": $("#datepicker").val(),
+                        "lastdate": $("#datepick").val()
+                    }
+                    queryArr.push(employeepastdetails);
+                    console.log(queryArr);
+                    localStorage.setItem("education", JSON.stringify(queryArr));
+                    $.ajax({
+                        url: 'http://localhost:3000/PersonalDetails/' + id,
+                        type: 'GET',
+                        contentType: 'application/json',
+                        dataType: "json",
+                        async: false,
+                        success: function (data) {
+                            var data = data;
+                            var object = $.extend({}, data, employeepastdetails);
+                            //  console.log(object);
+                            $.ajax({
+                                url: 'http://localhost:3000/PersonalDetails/' + id,
+                                type: 'PUT',
+                                contentType: 'application/json',
+                                dataType: "json",
+                                async: false,
+                                data: JSON.stringify(object),
+                                success: function (data) {
+                                    console.log(data);
+
+                                }
+                            });
+
+                        }
+                    });
+                    setTimeout(function() { alert("Your details have been saved successfully."); }, 200);
+
+                }
+
+
+                $('#id-employment').click(function () {
+                    $('#freshemp').hide();
+                    var employee = [""];
+                    employee.map(function () {
+
+                        var contents = $(`   
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12" id="company">
+                        <div id="comp">Company<span class="text-danger">*</span></div>   
+                        <input   class="no-outline w3-input" type="text"   id="inp-comp"  required >
+                    
+                        </div> 
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div id="position">Position<span class="text-danger">*</span></div>
+                        <input type="text" class="no-outline" id="inp-position"  required>
+                        </div> 
+                    </div>
+                    
+                    
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="skills">Technical Skills<span class="text-danger">*</span></div>
+                            <input type="text" class="no-outline" class="skills" id="id-techskill"  required >
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="responsible">Responsibilities<span class="text-danger">*</span></div>
+                            <textarea id="response" class="no-outline"  required ></textarea>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div id="last-ctc">Last CTC<span class="text-danger">*</span></div>
+                            <td class="td10"><span class="prefix">$</span><input type="text" class="no-outline cls-lastCtc"  id="ctc" maxlength="8" onkeypress="return isNumber(event)" required></td>
+                            
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="cls-date" id="id-doj">Date of Joining<span class="text-danger">*</span></div>
+                            <input id="datepicker"class="no-outline input cls-joiningdate"  required >
+
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="cls-date">Last Date<span class="cls-required">*</span></div>
+                            <input id="datepick" class="no-outline input cls-lastdate" required>
+                        </div>
+                    </div>
+                    
+                    <br />
+                     <hr><br/>`);
+                        $("#firstform").prepend(contents);
+                        bootstrapValidate('#inp-comp', 'required:Please enter the name of the company');
+                        bootstrapValidate('#inp-position', 'required:Please enter the position held in the company');
+                        bootstrapValidate('#id-techskill', 'required: Please enter the technical skills');
+                        bootstrapValidate('#response', 'required: Please enter the responsibilities held');
+                        bootstrapValidate('#ctc', 'required:Please enter the last drawn CTC');
+                        bootstrapValidate('#datepicker', 'required: Please select the Date of joining');
+                        bootstrapValidate('#datepick', 'required:Please select the Last Date');
+
+                        $('#datepicker').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var empdoj = $("#datepicker").val();
+
+                            }
+
+                        });
+                        $('#datepick').datepicker({
+
+                            disableDates: function (date) {
+                                const currentDate = new Date();
+                                return date < currentDate ? true : false;
+                            },
+                            change: function (e) {
+                                var emplastdate = $("#datepick").val();
+
+                            }
+                        });
+
+                    });
+                });
+
+
+                $("#id-previous").click(function () {
+                    window.location.href = "./form2.html";
+                });
+                
+
+
+
+
+
+
+
+
+            </script>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+
+
+</body>
+
+</html>
